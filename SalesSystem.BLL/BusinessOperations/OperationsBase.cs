@@ -1,4 +1,5 @@
-﻿using SalesSystem.BLL.Interfaces;
+﻿using SalesSystem.BLL.DBContextFactory;
+using SalesSystem.BLL.Interfaces;
 using SalesSystem.DAL;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,10 @@ namespace SalesSystem.BLL.UserOperations
     {
         protected readonly SalessystemContext context;
 
-        public OperationsBase(SalessystemContext contexts)
+        public OperationsBase()
         {
 
-            context = contexts;
+            context = new SalesDbContextFactory().CreateDbContext();
         }
     }
 

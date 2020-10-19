@@ -32,6 +32,7 @@ namespace SalesSystem
             services.AddControllersWithViews();
             services.AddEntityFrameworkSqlServer();
             services.AddAutoMapper(typeof(Startup));
+            services.AddSession();
             services.AddMvc().AddFluentValidation(s =>
             {
                 s.RegisterValidatorsFromAssemblyContaining<Startup>();
@@ -42,7 +43,6 @@ namespace SalesSystem
                 (options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
             services.Scan(scan => scan.FromCallingAssembly()
-            .FromAssemblies(typeof(Ioperations).Assembly)
           .FromAssemblies(typeof(IDataRetrival).Assembly)
             .AddClasses().AsImplementedInterfaces());
 

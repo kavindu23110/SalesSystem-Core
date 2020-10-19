@@ -20,9 +20,6 @@ namespace SalesSystem.Helpers
             dataRetrieve = dataRetrival;
     
         }
-
- 
-
        public void FillUserViewModel(ref UserViewModel userViewModel)
         {
            userViewModel.lstUserTypes =((User_RoledataRetrival)dataRetrieve).GetRoles();

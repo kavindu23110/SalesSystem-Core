@@ -11,9 +11,7 @@ namespace SalesSystem.BLL.UserOperations
 {
     public class RegistrationProcess : OperationsBase
     {
-        public RegistrationProcess(SalessystemContext contexts) : base(contexts)
-        {
-        }
+
 
         public bool Register(DTO.DTO_User dTO)
         {

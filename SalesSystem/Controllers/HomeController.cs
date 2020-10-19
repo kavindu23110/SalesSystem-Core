@@ -20,7 +20,7 @@ namespace SalesSystem.Controllers
 
         public HomeController(ILogger<HomeController> logger,SalesSystem.DAL.SalessystemContext db)
         {
-            new User().Login("dhf","dthryj");
+    
             _logger = logger;
         }
 

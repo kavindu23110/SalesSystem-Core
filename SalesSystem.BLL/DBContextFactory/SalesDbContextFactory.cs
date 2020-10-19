@@ -8,7 +8,7 @@ using System.Text;
 
 namespace SalesSystem.BLL.DBContextFactory
 {
-    public class ApplicationDbContextFactory
+    public class SalesDbContextFactory
     {
 
         public SalesSystem.DAL.SalessystemContext CreateDbContext()

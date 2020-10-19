@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using SalesSystem.BLL.DTO;
 using SalesSystem.BLL.Interfaces;
 using SalesSystem.BLL.UserOperations;
+using SalesSystem.DAL;
 using SalesSystem.Helpers;
 using SalesSystem.Interfaces;
 using SalesSystem.Models;
@@ -28,31 +29,30 @@ namespace SalesSystem.Controllers
         {
             return View();
         }   
-        public IActionResult Login(UserViewModel userView, [FromServices] Ioperations ioperations)
+        public IActionResult Login(UserViewModel userView)
         {
             if (ModelState.IsValid)
             {
                 var DTO = new DTO_User();
                 _mapper.Map(userView, DTO);
 
-
-                if (((LoginProcess)ioperations).ValidateLogin(DTO))
+                (var result,var user)=new SalesSystem.BLL.DefinitionObjects.User().Login(DTO);
+                if (result)
                 {
                     TempData[BLL.BOD.CommonValues.Success] = true;
                     return RedirectToAction(nameof(Registration));
                 }
-
             }
-
             return View();
         }
+
+
         public IActionResult Registration()
         {
             UserViewModel userViewModel = new UserViewModel();
-
             datafill.FillUserViewModel(ref userViewModel);
-
             return View(userViewModel);
+
         }
         public IActionResult RegistrationProcess(UserViewModel userView,[FromServices] Ioperations ioperations)
         {
@@ -61,12 +61,10 @@ namespace SalesSystem.Controllers
             {
                 var DTO = new DTO_User();
                 _mapper.Map(userView, DTO);
-            
-              
-                if (((RegistrationProcess)ioperations).Register(DTO))
+                if (new SalesSystem.BLL.DefinitionObjects.User().Register(DTO))
                 {
                     TempData[BLL.BOD.CommonValues.Success] = true;
-                  return  RedirectToAction(nameof(Registration));
+                    return RedirectToAction(nameof(Registration));
                 }
 
             }

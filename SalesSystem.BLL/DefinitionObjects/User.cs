@@ -1,4 +1,5 @@
 ﻿using SalesSystem.BLL.DBContextFactory;
+using SalesSystem.BLL.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +10,7 @@ namespace SalesSystem.BLL.DefinitionObjects
     {
         public User()
         {
-            var s = new ApplicationDbContextFactory().CreateDbContext();
+            var s = new SalesDbContextFactory().CreateDbContext();
 
         }
 
@@ -39,5 +40,12 @@ namespace SalesSystem.BLL.DefinitionObjects
         public List<ContactDetails> UserDetails { get; set; }
         private String UserRole { get; set; }
         public bool LoginStatus { get; set; }
+
+        public bool Register(DTO.DTO_User dTO)
+        {
+           return new BLL.UserOperations.RegistrationProcess().Register(dTO);
+        }
+
+     
     }
 }

@@ -13,5 +13,7 @@ namespace SalesSystem.BLL.DTO
         public String Email { get; set; }
         public String ContactNo { get; set; }
         public string UserType { get; set; }
+        public bool IsActive { get; set; }
+
     }
 }

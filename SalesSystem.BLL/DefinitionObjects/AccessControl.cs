@@ -1,4 +1,5 @@
-﻿using SalesSystem.BLL.Interfaces;
+﻿using SalesSystem.BLL.DTO;
+using SalesSystem.BLL.Interfaces;
 using SalesSystem.BLL.UserOperations;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,11 @@ namespace SalesSystem.BLL.DefinitionObjects
 {
   public  class AccessControl
     {
-        public void Login(String username ,string password )
+      
+        public (bool, DTO_User) Login(DTO_User dTO)
         {
-           
-
+            return new LoginProcess().ValidateLogin(dTO);
         }
-
         public  void resetPassword()
         {
             throw new NotImplementedException();

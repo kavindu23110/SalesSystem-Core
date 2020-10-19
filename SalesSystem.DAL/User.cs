@@ -34,5 +34,7 @@ namespace SalesSystem.DAL
         public virtual ICollection<Stock> Stocks { get; set; }
         [InverseProperty(nameof(UserDetail.User))]
         public virtual ICollection<UserDetail> UserDetails { get; set; }
+
+    
     }
 }
