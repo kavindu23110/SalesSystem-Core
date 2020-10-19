@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@model SalesSystem.Models.UserViewModel
+
+<link href="~/Content/Custom.css" rel="stylesheet" />
+
+<div class="container">
+
+    <div class="row align-items-center registration-pulldown">
+        <div class="row">
+            <h1 class="header-custom text-center col-md-4 col-md-push-3" style="margin-left:100px!important">Login</h1>
+        </div>
+        <div class="col-md-4 col-md-push-6  RegistrationDiv Logindiv align-items-center">
+            @using (Html.BeginForm("User", "Login", FormMethod.Post, new { @class = "form-group" }))
+            {
+                <div class="form-group">
+                    <label>Email Address</label>
+                    @Html.TextBoxFor(p => p.username, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.username, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    @Html.TextBoxFor(p => p.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-primary text-center col-md-4 loginsubmitcustom">Submit</button>
+                </div>
+            }
+
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>
+
+

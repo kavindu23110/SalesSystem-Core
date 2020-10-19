@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model SalesSystem.Models.UserViewModel
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<div class="container-fluid">
+    <div class="row registration-pulldown"  ></div>
+    <div class="row">
+        <div class="col-lg-6 align-content-lg-center RegistrationDiv" >
+            <div class="row">
+                <h1 class="header-custom text-center">User Registration</h1>
+            </div>
+            @using (Html.BeginForm("RegistrationProcess", "User"))
+            {
+                <div class="form-group">
+
+                    <div class="form-group row ">
+
+                        <label class="col-md-4 col-form-label">First Name</label>
+                        <div class="col-md-8"> @Html.TextBoxFor(p => p.Firstname, "", new { @class = "form-control " })</div>
+
+                    </div>
+                           <div class="col-md-4"></div>
+                    @Html.ValidationMessageFor(p => p.Firstname, "", new { @class = "text-danger " })
+                </div>
+
+                <div class="form-group">
+
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label">Last Name</label>
+                        <div class="col-md-8"> @Html.TextBoxFor(p => p.Lastname, "", new { @class = "form-control " })</div>
+
+                    </div>
+                    @Html.ValidationMessageFor(p => p.Lastname, "", new { @class = "text-danger " })
+                </div>
+
+                <div class="form-group">
+
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label ">E-mail</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(p => p.Email, "", new { @class = "form-control " })
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        @Html.ValidationMessageFor(p => p.Email, "", new { @class = "text-danger c" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label">Contact No</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(p => p.UserType, new SelectList(Model.lstUserTypes), new { @class = "custom-select form-control" })
+                        </div>
+
+                    </div>
+                    @Html.ValidationMessageFor(p => p.UserType, "", new { @class = "text-danger" })
+                </div>
+
+
+
+
+                <div class="form-group">
+
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label">Contact No</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(p => p.ContactNo, "", new { @class = "form-control " })
+                        </div>
+
+                    </div>
+                    @Html.ValidationMessageFor(p => p.ContactNo, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label">UserName</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(p => p.username, "", new { @class = "form-control " })
+                        </div>
+
+                    </div>
+                    @Html.ValidationMessageFor(p => p.username, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+
+
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label">Password</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(p => p.Password, "", new { @class = "form-control " })
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        @Html.ValidationMessageFor(p => p.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <button type="reset" class="btn btn-primary col-md-2 col-md-push-5 Button-Margin">Clear</button>
+                    <button type="submit" class="btn btn-primary col-md-2 col-md-push-5 Button-Margin">Submit</button>
+                </div>
+            }
+            <script>
+                @{
+                    var temp = TempData[SalesSystem.BLL.BOD.CommonValues.Success];
+                    if (temp != null)
+                    {
+                       @Html.Raw("myfunction();");
+
+
+
+                    }
+                 }
+        
+                function myfunction() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'User work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            </script>
+
+        </div>
+    </div>
+</div>
+

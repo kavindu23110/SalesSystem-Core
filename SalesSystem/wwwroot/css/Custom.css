@@ -1,0 +1,30 @@
+﻿.Button-Margin{
+    margin-left:20px
+}
+
+.header-custom {
+    font-weight: bold;
+    background-color: #c5c1bb94;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+.RegistrationDiv {
+    background-color: #e0dada;
+    border-radius: 20px;
+}
+.registration-pulldown{
+    height:20px;
+    margin-top:50px;
+}
+.Logindiv{
+    padding:20px;
+}
+.loginsubmitcustom{
+    float:right;
+    margin-right:150px;
+}
