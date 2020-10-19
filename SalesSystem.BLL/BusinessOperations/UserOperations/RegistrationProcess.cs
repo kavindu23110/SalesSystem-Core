@@ -1,14 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using SalesSystem.BLL.Interfaces;
-using SalesSystem.DAL;
+﻿using SalesSystem.DAL;
 using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Text;
 
 namespace SalesSystem.BLL.UserOperations
-{
+{//User Registration Service
     public class RegistrationProcess : OperationsBase
     {
 
@@ -16,9 +11,9 @@ namespace SalesSystem.BLL.UserOperations
         public bool Register(DTO.DTO_User dTO)
         {
             try
-            {
+            {   //Map User DTO with Dataaccess model
                 var user = CreateNewUser(dTO);
-                UserDetail userDetail = new UserDetail();
+                //Save User with Transaction
                 using (var t = context.Database.BeginTransaction())
                 {
                     context.Users.Add(user);
@@ -27,22 +22,21 @@ namespace SalesSystem.BLL.UserOperations
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
                 return false;
             }
             return true;
         }
-
-        private User CreateNewUser(DTO.DTO_User dTO)
+        //Create DTO To save In Database
+        private User CreateNewUser(DTO.DTO_User dto)
         {
-            var roleId = context.Roles.Where(p => p.Isactive == true && p.RoleName == dTO.UserType).FirstOrDefault().Id;
+            var roleId = context.Roles.Where(p => p.Isactive == true && p.RoleName == dto.UserType).FirstOrDefault().Id;
             User user = new User();
             user.IsActive = true;
-            user.Password = dTO.Password;
+            user.Password = dto.Password;
             user.RoleId = roleId;
-            user.UserName = dTO.username;
+            user.UserName = dto.username;
             return user;
 
         }

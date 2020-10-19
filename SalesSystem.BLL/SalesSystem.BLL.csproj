@@ -16,4 +16,8 @@
     <ProjectReference Include="..\SalesSystem.DAL\SalesSystem.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DefinitionObjects\Products\Parts\" />
+  </ItemGroup>
+
 </Project>

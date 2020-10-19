@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SalesSystem.BLL.Interfaces
+﻿namespace SalesSystem.BLL.Interfaces
 {
-   public interface Ioperations
+    public interface Ioperations
     {
     }
 }

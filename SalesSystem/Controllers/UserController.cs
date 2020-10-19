@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SalesSystem.BLL.DTO;
 using SalesSystem.BLL.Interfaces;
-using SalesSystem.BLL.UserOperations;
-using SalesSystem.DAL;
 using SalesSystem.Helpers;
-using SalesSystem.Interfaces;
 using SalesSystem.Models;
 
 namespace SalesSystem.Controllers
@@ -18,27 +11,32 @@ namespace SalesSystem.Controllers
     {
         private readonly IMapper _mapper;
         private readonly ViewModelDataFill datafill;
-
-        public UserController(IMapper mapper,IDataRetrival dataRetrival)
+        //Get Services From DI
+        public UserController(IMapper mapper, IDataRetrival dataRetrival)
         {
             _mapper = mapper;
             datafill = new ViewModelDataFill(dataRetrival);
         }
-
+        //Return Login View
         public IActionResult Index()
         {
             return View();
-        }   
+        }
+        //Get Login Request
+        [HttpPost]
         public IActionResult Login(UserViewModel userView)
         {
             if (ModelState.IsValid)
             {
+                //vaklid User Login Requests Map to DTO
                 var DTO = new DTO_User();
                 _mapper.Map(userView, DTO);
 
-                (var result,var user)=new SalesSystem.BLL.DefinitionObjects.User().Login(DTO);
+                (var result, var user) = new SalesSystem.BLL.DefinitionObjects.User().Login(DTO);
                 if (result)
                 {
+                    //Valid Users Are Stored In the Session
+                    SessionManager.Set<DTO_User>(HttpContext.Session, "LoggedUser", user);
                     TempData[BLL.BOD.CommonValues.Success] = true;
                     return RedirectToAction(nameof(Registration));
                 }
@@ -46,21 +44,25 @@ namespace SalesSystem.Controllers
             return View();
         }
 
-
+        //Provide Registration view with provide  Dropdown values
         public IActionResult Registration()
         {
+
             UserViewModel userViewModel = new UserViewModel();
             datafill.FillUserViewModel(ref userViewModel);
             return View(userViewModel);
 
         }
-        public IActionResult RegistrationProcess(UserViewModel userView,[FromServices] Ioperations ioperations)
+        //User Registration Request
+        [HttpPost]
+        public IActionResult RegistrationProcess(UserViewModel userView, [FromServices] Ioperations ioperations)
         {
-            
+
             if (ModelState.IsValid)
             {
                 var DTO = new DTO_User();
                 _mapper.Map(userView, DTO);
+
                 if (new SalesSystem.BLL.DefinitionObjects.User().Register(DTO))
                 {
                     TempData[BLL.BOD.CommonValues.Success] = true;
@@ -68,8 +70,8 @@ namespace SalesSystem.Controllers
                 }
 
             }
-         
-            return View("Registration",userView);
+
+            return View("Registration", userView);
         }
 
 

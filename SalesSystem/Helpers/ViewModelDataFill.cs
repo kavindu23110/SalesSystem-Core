@@ -3,14 +3,11 @@ using SalesSystem.BLL.DataRetrivalOperations;
 using SalesSystem.BLL.Interfaces;
 using SalesSystem.Interfaces;
 using SalesSystem.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SalesSystem.Helpers
 {
-    public class ViewModelDataFill:IDataFill
+    //Class For Fill data to ViewModels
+    public class ViewModelDataFill : IDataFill
     {
         private readonly IDataRetrival dataRetrieve;
         private readonly IMapper _mapper;
@@ -18,12 +15,15 @@ namespace SalesSystem.Helpers
         public ViewModelDataFill(IDataRetrival dataRetrival)
         {
             dataRetrieve = dataRetrival;
-    
+
         }
-       public void FillUserViewModel(ref UserViewModel userViewModel)
+        //Fill the userviewModel Drop down
+        public void FillUserViewModel(ref UserViewModel userViewModel)
         {
-           userViewModel.lstUserTypes =((User_RoledataRetrival)dataRetrieve).GetRoles();
-       
+            //Service provided By DI Container  
+            //A singleton Service
+            userViewModel.lstUserTypes = ((User_RoledataRetrival)dataRetrieve).GetRoles();
+
         }
     }
 }

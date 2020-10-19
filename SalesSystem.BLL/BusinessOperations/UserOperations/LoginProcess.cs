@@ -12,7 +12,7 @@ namespace SalesSystem.BLL.UserOperations
         {
 
             (var lstuser, var user) = FindUserNameOnDatabase(dTO);
-            
+
             return CreateLoginResult(lstuser, user); ;
         }
 

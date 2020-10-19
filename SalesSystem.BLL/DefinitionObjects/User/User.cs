@@ -1,16 +1,14 @@
 ﻿using SalesSystem.BLL.DBContextFactory;
-using SalesSystem.BLL.DTO;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SalesSystem.BLL.DefinitionObjects
 {
-   public class User:AccessControl
+    public class User : AccessControl
     {
         public User()
         {
-            var s = new SalesDbContextFactory().CreateDbContext();
+           
 
         }
 
@@ -19,7 +17,7 @@ namespace SalesSystem.BLL.DefinitionObjects
             throw new NotImplementedException();
         }
 
-        private void UpadateUserDetails(int userId,string email,string contactNo)
+        private void UpadateUserDetails(int userId, string email, string contactNo)
         {
             throw new NotImplementedException();
         }
@@ -40,12 +38,12 @@ namespace SalesSystem.BLL.DefinitionObjects
         public List<ContactDetails> UserDetails { get; set; }
         private String UserRole { get; set; }
         public bool LoginStatus { get; set; }
-
+        //Register User Provide By seperate service
         public bool Register(DTO.DTO_User dTO)
         {
-           return new BLL.UserOperations.RegistrationProcess().Register(dTO);
+            return new BLL.UserOperations.RegistrationProcess().Register(dTO);
         }
 
-     
+
     }
 }

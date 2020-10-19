@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SalesSystem.BLL.DefinitionObjects;
 using SalesSystem.Models;
+using System.Diagnostics;
 
 namespace SalesSystem.Controllers
 {
@@ -16,11 +9,11 @@ namespace SalesSystem.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-     
 
-        public HomeController(ILogger<HomeController> logger,SalesSystem.DAL.SalessystemContext db)
+
+        public HomeController(ILogger<HomeController> logger, SalesSystem.DAL.SalessystemContext db)
         {
-    
+
             _logger = logger;
         }
 
