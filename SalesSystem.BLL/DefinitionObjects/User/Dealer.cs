@@ -7,6 +7,12 @@ namespace SalesSystem.BLL.DefinitionObjects
 {
     public class Dealer : User
     {
+      
+        public Dealer(DTO_User dTO_User)
+        {
+            Username = dTO_User.username;
+        }
+
         public String DealerCode { get; set; }
 
         public DTO_Product CalculateProduct(DTO_Product dTO_Product)
@@ -18,12 +24,13 @@ namespace SalesSystem.BLL.DefinitionObjects
 
         }
 
-        public void SaveProduct(DTO_Product dTO_Product, int id)
+        public void SaveProduct(DTO_Product dTO_Product)
         {
-            this.Id = id;
+           
             Iproduct product = new BuildProduct().Execute(dTO_Product);
             product.CalculateCost();
-            product.CreatedById = this.Id;
+            product.CreatedOn = DateTime.Now;
+            product.CreatedBy= this.Username;
             new SaveProductProcess().Execute(product);
 
 

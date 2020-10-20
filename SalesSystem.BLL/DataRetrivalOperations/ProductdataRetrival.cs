@@ -4,6 +4,7 @@ using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
 using SalesSystem.BLL.DefinitionObjects.Products.Parts;
 using SalesSystem.BLL.Interfaces;
 using SalesSystem.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -53,6 +54,11 @@ namespace SalesSystem.BLL.DataRetrivalOperations
             }
 
             return CreatedPart;
+        }
+
+        internal int GetCategoryId(string CategoryName)
+        {
+            return context.ProductCategory.Where(p => p.CategoryName == CategoryName).FirstOrDefault().Id;
         }
 
         public int GetBrandId(string Brandname)

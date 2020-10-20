@@ -14,7 +14,7 @@ namespace SalesSystem.BLL.DTO
         public string ProductType { get; set; }
         public string CustomizationType { get; set; }
         public string BrandName { get; set; }
-        public int warrenty { get; set; }
+        public string warrenty { get; set; }
         public string Details { get; set; }
         public float ProfitMargin { get; set; }
         public float Cost { get; set; }

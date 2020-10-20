@@ -14,6 +14,9 @@ namespace SalesSystem.DAL
 
         public int Id { get; set; }
         public int ProductCategoryId { get; set; }
+        public float Profitmargin { get; set; }
+        public string Details { get; set; }
+        public string Warrenty { get; set; }
 
         public virtual ProductCategory ProductCategory { get; set; }
         public virtual ICollection<Product> Product { get; set; }

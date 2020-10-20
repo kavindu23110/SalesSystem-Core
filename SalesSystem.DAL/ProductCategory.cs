@@ -13,6 +13,7 @@ namespace SalesSystem.DAL
         }
 
         public int Id { get; set; }
+        public string CategoryName { get; set; }
 
         public virtual ICollection<Accesories> Accesories { get; set; }
         public virtual ICollection<Productdetails> Productdetails { get; set; }

@@ -48,10 +48,6 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops.ProfessionBuilder
             SetpartsToProduct(UserRequest);
         }
 
-        public void setBrandId()
-        {
-            product.BrandId=data.GetBrandId(dTO_Product.BrandName);
-        }
         public void SetValues(DTO_Product dTO_Product)
         {
             this.dTO_Product = dTO_Product;
