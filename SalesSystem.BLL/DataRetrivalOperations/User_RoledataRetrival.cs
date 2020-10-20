@@ -1,4 +1,5 @@
-﻿using SalesSystem.BLL.Interfaces;
+﻿using SalesSystem.BLL.DBContextFactory;
+using SalesSystem.BLL.Interfaces;
 using SalesSystem.DAL;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,17 @@ namespace SalesSystem.BLL.DataRetrivalOperations
         {
             context = contexts;
         }
+        public User_RoledataRetrival()
+        {
+            context = new SalesDbContextFactory().CreateDbContext();
+        }
 
         public List<string> GetRoles()
         {
-            return context.Roles.Where(p => p.Isactive == true)
+            return context.Role.Where(p => p.Isactive == true)
                   .Select(p => p.RoleName).ToList();
         }
+
+
     }
 }

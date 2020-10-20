@@ -8,21 +8,34 @@ namespace SalesSystem.Models
         public ProductViewModel()
         {
             lstProduct = new List<Product>();
-            lstSupplier = new List<supplier>();
+            lstSupplierName = new List<string>();
+            lstProductCategory= new List<string>();
+            lstBrandIdName = new List<string>();
+            lstparts = new List<string>();
         }
         [Required]
-        public int SupplierId { get; set; }
+        public string SupplierName { get; set; }
         [Required]
-        public int ProductId { get; set; }
-        public int BrandIdId { get; set; }
+        public string ProductCategory { get; set; }
+        [Required]
+        public string ProductType{ get; set; }
+        [Required]
+        public string BrandName { get; set; }
         [Required]
         public int warrenty { get; set; }
         public string Details { get; set; }
         [Required]
         public float ProfitMargin { get; set; }
+        public float Cost { get; set; }
 
-        public List<supplier> lstSupplier { get; set; }
+
         public List<Product> lstProduct { get; set; }
+
+
+        public List<string> lstSupplierName { get; set; }
+        public List<string> lstProductCategory { get; set; }
+        public List<string> lstBrandIdName { get; set; }
+        public List<string> lstparts { get; set; }
     }
 
     public class Product

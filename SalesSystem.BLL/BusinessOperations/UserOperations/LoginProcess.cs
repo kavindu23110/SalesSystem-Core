@@ -40,7 +40,7 @@ namespace SalesSystem.BLL.UserOperations
 
         private (List<User> userlist, User user) FindUserNameOnDatabase(DTO_User dTO)
         {
-            var userlist = context.Users.Where(p => p.UserName == dTO.username).ToList();
+            var userlist = context.User.Where(p => p.UserName == dTO.username).ToList();
             var user = userlist.Where(p => p.Password == dTO.Password).FirstOrDefault();
             return (userlist, user);
         }

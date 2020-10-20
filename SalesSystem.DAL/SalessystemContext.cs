@@ -7,31 +7,46 @@ namespace SalesSystem.DAL
 {
     public partial class SalessystemContext : DbContext
     {
-   
+        public SalessystemContext()
+        {
+        }
 
         public SalessystemContext(DbContextOptions<SalessystemContext> options)
             : base(options)
         {
-            
         }
 
-        public virtual DbSet<Accesory> Accesories { get; set; }
-        public virtual DbSet<Brand> Brands { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<ProductAccesory> ProductAccesories { get; set; }
-        public virtual DbSet<ProductCategory> ProductCategories { get; set; }
-        public virtual DbSet<Productdetail> Productdetails { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<Stock> Stocks { get; set; }
-        public virtual DbSet<StockProduct> StockProducts { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UserDetail> UserDetails { get; set; }
+        public virtual DbSet<Accesories> Accesories { get; set; }
+        public virtual DbSet<Brand> Brand { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<ProductAccesories> ProductAccesories { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategory { get; set; }
+        public virtual DbSet<Productdetails> Productdetails { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<Stock> Stock { get; set; }
+        public virtual DbSet<StockProduct> StockProduct { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserDetails> UserDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Accesory>(entity =>
+            modelBuilder.Entity<Accesories>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.AccesoryName)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Details)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SizeUnits)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.ProductCategory)
                     .WithMany(p => p.Accesories)
@@ -50,19 +65,19 @@ namespace SalesSystem.DAL
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.HasOne(d => d.Brand)
-                    .WithMany(p => p.Products)
+                    .WithMany(p => p.Product)
                     .HasForeignKey(d => d.BrandId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Product_Brand");
 
                 entity.HasOne(d => d.ProductDetails)
-                    .WithMany(p => p.Products)
+                    .WithMany(p => p.Product)
                     .HasForeignKey(d => d.ProductDetailsId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Product_Productdetails");
             });
 
-            modelBuilder.Entity<ProductAccesory>(entity =>
+            modelBuilder.Entity<ProductAccesories>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
@@ -84,7 +99,7 @@ namespace SalesSystem.DAL
                 entity.Property(e => e.Id).ValueGeneratedNever();
             });
 
-            modelBuilder.Entity<Productdetail>(entity =>
+            modelBuilder.Entity<Productdetails>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
@@ -97,9 +112,10 @@ namespace SalesSystem.DAL
 
             modelBuilder.Entity<Role>(entity =>
             {
-                entity.Property(e => e.Isactive).IsFixedLength();
-
-                entity.Property(e => e.RoleName).IsFixedLength();
+                entity.Property(e => e.RoleName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Stock>(entity =>
@@ -107,7 +123,7 @@ namespace SalesSystem.DAL
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.HasOne(d => d.User)
-                    .WithMany(p => p.Stocks)
+                    .WithMany(p => p.Stock)
                     .HasForeignKey(d => d.UserId)
                     .HasConstraintName("FK_Stock_user");
             });
@@ -117,13 +133,13 @@ namespace SalesSystem.DAL
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.HasOne(d => d.Product)
-                    .WithMany(p => p.StockProducts)
+                    .WithMany(p => p.StockProduct)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_StockProduct_Product");
 
                 entity.HasOne(d => d.Stock)
-                    .WithMany(p => p.StockProducts)
+                    .WithMany(p => p.StockProduct)
                     .HasForeignKey(d => d.StockId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_StockProduct_Stock");
@@ -131,20 +147,42 @@ namespace SalesSystem.DAL
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.Password).IsUnicode(false);
+                entity.ToTable("user");
 
-                entity.Property(e => e.UserName).IsUnicode(false);
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasColumnName("password")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.Role)
-                    .WithMany(p => p.Users)
+                    .WithMany(p => p.User)
                     .HasForeignKey(d => d.RoleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_user_Role");
             });
 
-            modelBuilder.Entity<UserDetail>(entity =>
+            modelBuilder.Entity<UserDetails>(entity =>
             {
                 entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Firstname)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Lastname)
+                    .IsRequired()
+                    .HasColumnName("lastname")
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.UserDetails)

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesSystem", "SalesSystem\SalesSystem.csproj", "{ED39F916-2220-4D38-A1DA-2A55A7445E47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesSystem", "SalesSystem\SalesSystem.csproj", "{ED39F916-2220-4D38-A1DA-2A55A7445E47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesSystem.BLL", "SalesSystem.BLL\SalesSystem.BLL.csproj", "{40F69DFD-1BD5-4D94-B2C0-9FBF5A138B10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesSystem.BLL", "SalesSystem.BLL\SalesSystem.BLL.csproj", "{40F69DFD-1BD5-4D94-B2C0-9FBF5A138B10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesSystem.DAL", "SalesSystem.DAL\SalesSystem.DAL.csproj", "{0788F7C8-86FD-42BC-BC78-C6264F994586}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesSystem.DAL", "SalesSystem.DAL\SalesSystem.DAL.csproj", "{0788F7C8-86FD-42BC-BC78-C6264F994586}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

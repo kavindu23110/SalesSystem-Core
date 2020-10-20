@@ -4,16 +4,19 @@ using System.Collections.Generic;
 
 namespace SalesSystem.DAL
 {
-    public partial class Brand
+    public partial class Productdetails
     {
-        public Brand()
+        public Productdetails()
         {
             Product = new HashSet<Product>();
+            ProductAccesories = new HashSet<ProductAccesories>();
         }
 
         public int Id { get; set; }
-        public string BrandName { get; set; }
+        public int ProductCategoryId { get; set; }
 
+        public virtual ProductCategory ProductCategory { get; set; }
         public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<ProductAccesories> ProductAccesories { get; set; }
     }
 }

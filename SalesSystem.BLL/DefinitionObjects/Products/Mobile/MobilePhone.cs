@@ -2,9 +2,9 @@
 
 namespace SalesSystem.BLL.DefinitionObjects.Products.Mobile
 {
-    public class Mobile : Product
+    public class MobilePhone : Product
     {
-        public IParts SDCard { get; set; }
+       
 
     }
 }

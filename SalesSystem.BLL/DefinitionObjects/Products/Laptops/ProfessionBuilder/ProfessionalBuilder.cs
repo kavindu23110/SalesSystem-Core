@@ -1,16 +1,14 @@
 ﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
+using SalesSystem.BLL.DTO;
 using System;
 
 namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops.ProfessionBuilder
 {
-    public class ProfessionalBuilder : IProfessionBuilder
+    public class ProfessionalBuilder : AbstractBuilder,IProfessionBuilder
     {
-        public void AddHdd()
-        {
-            throw new NotImplementedException();
-        }
+        Iproduct product = new Laptop();
 
-        public void AddRam()
+        public void AddSpecificFeatures()
         {
             throw new NotImplementedException();
         }
@@ -22,12 +20,14 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops.ProfessionBuilder
 
         public Iproduct GetLaptop()
         {
-            throw new NotImplementedException();
+            return product;
         }
 
-        public void AddCustomizedkeyboard(int size)
+        public void SetDetails()
         {
             throw new NotImplementedException();
         }
+
+
     }
 }
