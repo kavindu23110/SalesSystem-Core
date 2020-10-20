@@ -27,13 +27,13 @@ namespace SalesSystem.Controllers
 
         //Get Login Request
         [HttpPost]
-        public IActionResult Login(UserViewModel userView)
+        public IActionResult Login(LoginviewModel loginView)
         {
             if (ModelState.IsValid)
             {
                 //valid User Login Requests Map to DTO
                 var DTO = new DTO_User();
-                _mapper.Map(userView, DTO);
+                _mapper.Map(loginView, DTO);
 
                 (var result, var user) = new SalesSystem.BLL.DefinitionObjects.User().Login(DTO);
                 if (result)
@@ -49,7 +49,7 @@ namespace SalesSystem.Controllers
                 }
             }
           
-            return View("Index", userView);
+            return View("Index", loginView);
         }
 
         //Provide Registration view with provide  Dropdown values
