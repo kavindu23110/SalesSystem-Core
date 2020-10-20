@@ -28,12 +28,13 @@ namespace SalesSystem.Controllers
 
         public IActionResult AddNewProduct(ProductViewModel productViewModel)
         {
+            var user = new DTO_User();
             if (ModelState.IsValid)
             {
                 int id = 0;
                 var ProductDto = new DTO_Product();
                 _mapper.Map(productViewModel, ProductDto);
-                new Dealer(DTO_User user).SaveProduct(ProductDto);
+                new Dealer( user).SaveProduct(ProductDto);
             }
             return View(productViewModel);
         }
@@ -43,11 +44,12 @@ namespace SalesSystem.Controllers
 
         public IActionResult CalculateProduct(ProductViewModel productViewModel)
         {
+            var user = new DTO_User();
             if (ModelState.IsValid)
             {
                 var ProductDto = new DTO_Product();
                 _mapper.Map(productViewModel, ProductDto);
-                var result = new Dealer().CalculateProduct(ProductDto);
+                var result = new Dealer(user).CalculateProduct(ProductDto);
                 _mapper.Map(result, productViewModel);
             }
             return View(productViewModel);

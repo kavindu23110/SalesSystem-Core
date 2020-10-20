@@ -24,7 +24,11 @@ namespace SalesSystem.BLL.DataRetrivalOperations
             return context.Role.Where(p => p.Isactive == true)
                   .Select(p => p.RoleName).ToList();
         }
-
+        public bool CheckUserNameAvilability(string UserName)
+        {
+            return !context.User.Where(p => p.IsActive == true && p.UserName==UserName).Any();
+                
+        }
 
     }
 }

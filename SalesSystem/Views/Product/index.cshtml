@@ -9,139 +9,143 @@
 <div class="container">
     <div class="row registration-pulldown"></div>
     <div class="row">
-        <div class="col-lg-6 col-lg-push-3 RegistrationDiv">
-            <div class="row">
-                <h1 class="header-custom text-center">Add Product</h1>
-            </div>
-            @using (Html.BeginForm("AddNewProduct", "Product"))
-            {
-                <div class="form-group">
+    <div class=" col-sm-3"></div>
+    <div class="col-lg-6 RegistrationDiv">
+        <h1 class="header-custom text-center ">Add Product</h1>
+        @using (Html.BeginForm("AddNewProduct", "Product"))
+        {
+            <div class="form-group">
 
-                    <div class="form-group row">
+                <div class="form-group row">
 
-                        <label class="col-md-4 col-form-label">Supplier Name</label>
+                    <label class="col-md-4 col-form-label">Supplier Name</label><div class="col-md-8">
                         @Html.DropDownListFor(p => p.SupplierName, new SelectList(Model.lstSupplierName, "Id", "Name", 0), new { @class = "custom-select form-control" })
 
                     </div>
-                    @Html.ValidationMessageFor(p => p.SupplierName, "", new { @class = "text-danger" })
                 </div>
-                <div class="form-group">
+                @Html.ValidationMessageFor(p => p.SupplierName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
 
-                    <div class="form-group row">
+                <div class="form-group row">
 
-                        <label class="col-md-4 col-form-label">Brand Name</label>
+                    <label class="col-md-4 col-form-label">Brand Name</label> <div class="col-md-8">
                         @Html.DropDownListFor(p => p.BrandName, new SelectList(Model.lstBrandIdName, "Id", "Name", 0), new { @class = "custom-select form-control" })
 
                     </div>
-                    @Html.ValidationMessageFor(p => p.BrandName, "", new { @class = "text-danger" })
                 </div>
+                @Html.ValidationMessageFor(p => p.BrandName, "", new { @class = "text-danger" })
+            </div>
 
 
-                <div class="form-group">
+            <div class="form-group">
 
-                    <div class="form-group row">
+                <div class="form-group row">
 
-                        <label class="col-md-4 col-form-label">Product Category</label>
+                    <label class="col-md-4 col-form-label">Product Category</label> <div class="col-md-8">
                         @Html.DropDownListFor(p => p.ProductCategory, new SelectList(Model.lstProductCategory, "Id", "Name", 0), new { @class = "custom-select form-control" })
 
                     </div>
-                    @Html.ValidationMessageFor(p => p.ProductCategory, "", new { @class = "text-danger" })
                 </div>
+                @Html.ValidationMessageFor(p => p.ProductCategory, "", new { @class = "text-danger" })
+            </div>
 
-                <div class="form-group">
+            <div class="form-group">
 
-                    <div class="form-group row">
+                <div class="form-group row">
 
-                        <label class="col-md-4 col-form-label">Product Type</label>
+                    <label class="col-md-4 col-form-label">Product Type</label>
+                    <div class="col-md-8">
                         @Html.DropDownListFor(p => p.ProductType, new SelectList(Model.lstProductCategory, "Id", "Name", 0), new { @class = "custom-select form-control" })
 
                     </div>
-                    @Html.ValidationMessageFor(p => p.ProductType, "", new { @class = "text-danger" })
                 </div>
+                @Html.ValidationMessageFor(p => p.ProductType, "", new { @class = "text-danger" })
+            </div>
+            @await Html.PartialAsync("PartialAccesory",Model)
 
-
-                <div class="form-group">
-
-                    <div class="form-group row">
-
-                        <label class="col-md-4 col-form-label">Warrenty</label>
-                        <div class="col-md-8">
-                            @Html.TextBoxFor(p => p.warrenty, "", new { @class = "form-control" })
-                        </div>
-
-                    </div>
-                    @Html.ValidationMessageFor(p => p.warrenty, "", new { @class = "text-danger" })
-                </div>
-
-
-
-
-                <div class="form-group">
-
-                    <div class="form-group row">
-
-                        <label class="col-md-4 col-form-label">Profit margin</label>
-
-
-                        <div class="input-group col-md-8">
-
-                            @Html.TextBoxFor(p => p.ProfitMargin, "", new { @class = "form-control " })
-
-                        </div>
-
-
-                    </div>
-                    @Html.ValidationMessageFor(p => p.ProfitMargin, "", new { @class = "text-danger" })
-                </div>
-
-
-
-                <div class="form-group">
-
-                    <div class="form-group row">
-
-                        <label class="col-md-4 col-form-label">Cost</label>
-
-
-                        <div class="input-group col-md-8">
-
-                            @Html.TextBoxFor(p => p.Cost, "", new { @class = "form-control " })
-
-                        </div>
-
-
-                    </div>
-               
-                </div>
-
-
-
-
-
-
-
-                <div class="form-group">
-
-
-                    <div class="form-group row">
-
-                        <label class="col-md-4 col-form-label">Details</label>
-                        <div class="col-md-8">
-                            @Html.TextAreaFor(p => p.Details, new { @class = "form-control " })
-                        </div>
-
-                    </div>
-                    @Html.ValidationMessageFor(p => p.Details, "", new { @class = "text-danger" })
-                </div>
+            <div class="form-group">
 
                 <div class="form-group row">
-                    <button type="reset" class="btn btn-primary col-md-2 col-md-push-5 Button-Margin">Clear</button>
-                    <button type="submit" class="btn btn-primary col-md-2 col-md-push-5 Button-Margin">Submit</button>
 
+                    <label class="col-md-4 col-form-label">Warrenty</label>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(p => p.warrenty, "", new { @class = "form-control" })
+                    </div>
 
-                    <input type="submit" name="response" value="Calculate" formaction=@Url.Action("CalculateProduct") formmethod="post" class="btn btn-primary" />
                 </div>
-            }
+                @Html.ValidationMessageFor(p => p.warrenty, "", new { @class = "text-danger" })
+            </div>
 
-        </div>
+
+
+
+            <div class="form-group">
+
+                <div class="form-group row">
+
+                    <label class="col-md-4 col-form-label">Profit margin</label>
+
+
+                    <div class="input-group col-md-8">
+
+                        @Html.TextBoxFor(p => p.ProfitMargin, "", new { @class = "form-control " })
+
+                    </div>
+
+
+                </div>
+                @Html.ValidationMessageFor(p => p.ProfitMargin, "", new { @class = "text-danger" })
+            </div>
+
+
+
+            <div class="form-group">
+
+                <div class="form-group row">
+
+                    <label class="col-md-4 col-form-label">Cost</label>
+
+
+                    <div class="input-group col-md-8">
+
+                        @Html.TextBoxFor(p => p.Cost, "", new { @class = "form-control " })
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+            <div class="form-group">
+
+
+                <div class="form-group row">
+
+                    <label class="col-md-4 col-form-label">Details</label>
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(p => p.Details, new { @class = "form-control " })
+                    </div>
+
+                </div>
+                @Html.ValidationMessageFor(p => p.Details, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group row">
+                <button type="reset" class="btn btn-primary col-md-2 col-md-push-5 Button-Margin">Clear</button>
+                <button type="submit" class="btn btn-primary col-md-2 col-md-push-5 Button-Margin">Submit</button>
+
+
+                <input type="submit" name="response" value="Calculate" formaction=@Url.Action("CalculateProduct") formmethod="post" class="btn btn-primary Button-Margin" />
+            </div>
+        }
+
+    </div>
 </div></div>

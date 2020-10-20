@@ -25,5 +25,12 @@ namespace SalesSystem.Helpers
             userViewModel.lstUserTypes = ((User_RoledataRetrival)dataRetrieve).GetRoles();
 
         }
+        public bool CheckForUserNameAcvilability(string userName)
+        {
+            //Service provided By DI Container  
+            //A singleton Service
+          return ((User_RoledataRetrival)dataRetrieve).CheckUserNameAvilability(userName);
+
+        }
     }
 }

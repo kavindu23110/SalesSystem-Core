@@ -11,10 +11,12 @@
 <div class="container">
 
     <div class="row align-items-center registration-pulldown">
-        <div class="row">
-            <h1 class="header-custom text-center col-md-4 col-md-push-3" style="margin-left:100px!important">Login</h1>
-        </div>
-        <div class="col-md-4 col-md-push-6  RegistrationDiv Logindiv align-items-center">
+     
+ 
+       
+        <div class="col-sm"></div>
+        <div class="col-sm  RegistrationDiv Logindiv align-items-center">
+            <h1 class="header-custom text-center " >Login</h1>
             @using (Html.BeginForm("User", "Login", FormMethod.Post, new { @class = "form-group" }))
             {
                 <div class="form-group">
@@ -27,11 +29,19 @@
                     @Html.TextBoxFor(p => p.Password, new { @class = "form-control" })
                     @Html.ValidationMessageFor(p => p.Password, "", new { @class = "text-danger" })
                 </div>
-                <div class="row">
-                    <button type="submit" class="btn btn-primary text-center col-md-4 loginsubmitcustom">Submit</button>
-                </div>
-            }
+          
 
+
+
+                   
+
+                    <button type="submit" class="btn btn-primary  loginsubmitcustom col-sm-4">Submit</button>
+                  
+
+                    
+            
+            }
+            <div class="col-sm"></div>
         </div>
         <div class="col-sm-4"></div>
     </div>

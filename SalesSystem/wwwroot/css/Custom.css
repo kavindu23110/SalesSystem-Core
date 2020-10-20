@@ -1,5 +1,5 @@
 ﻿.Button-Margin{
-    margin-left:20px
+    margin-left:50px!important
 }
 
 .header-custom {
@@ -25,6 +25,6 @@
     padding:20px;
 }
 .loginsubmitcustom{
-    float:right;
-    margin-right:150px;
+    /*float:right;*/
+    /*margin-right:150px;*/
 }

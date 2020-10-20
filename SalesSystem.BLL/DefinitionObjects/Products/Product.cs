@@ -22,6 +22,11 @@ namespace SalesSystem.BLL.DefinitionObjects.Products
 
         public List<IParts> lstParts { get; set; }
         public int CreatedById { get; set; }
+        public string Warrenty { get; set; }
+        public int CategoryId { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public float profitMargin { get; set; }
 
         public void CalculateCost()
         {

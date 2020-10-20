@@ -27,7 +27,7 @@ namespace SalesSystem.Models
         [Required]
         public float ProfitMargin { get; set; }
         public float Cost { get; set; }
-
+        public string CustomizationType { get; set; }
 
         public List<Product> lstProduct { get; set; }
 

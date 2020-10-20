@@ -7,6 +7,7 @@ namespace SalesSystem.Validators
     {
         public UserValidator()
         {
+
             RuleFor(p => p.Email).EmailAddress().NotEmpty();
             RuleFor(p => p.username).NotEmpty();
             RuleFor(p => p.Password).NotEmpty();

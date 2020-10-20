@@ -45,9 +45,9 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops
             return builder.GetLaptop();
         }
 
-        private BasicLaptop GetBasiclaptop(DTO_Product dTO_Product)
+        private Iproduct GetBasiclaptop(DTO_Product dTO_Product)
         {
-            BasicLaptop laptop = new BasicLaptop(dTO_Product);
+            Iproduct laptop = null;/*new BasicLaptop(dTO_Product);*/
             return laptop;
         }
     }
