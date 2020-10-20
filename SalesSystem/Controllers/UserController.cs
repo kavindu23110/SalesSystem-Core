@@ -22,13 +22,16 @@ namespace SalesSystem.Controllers
         {
             return View();
         }
+
+        //Return Login View
+
         //Get Login Request
         [HttpPost]
         public IActionResult Login(UserViewModel userView)
         {
             if (ModelState.IsValid)
             {
-                //vaklid User Login Requests Map to DTO
+                //valid User Login Requests Map to DTO
                 var DTO = new DTO_User();
                 _mapper.Map(userView, DTO);
 
@@ -37,11 +40,16 @@ namespace SalesSystem.Controllers
                 {
                     //Valid Users Are Stored In the Session
                     SessionManager.Set<DTO_User>(HttpContext.Session, "LoggedUser", user);
-                    TempData[BLL.BOD.CommonValues.Success] = true;
+                    TempData[BLL.BOD.CommonValues.UnSuccess] = true;
                     return RedirectToAction(nameof(Registration));
                 }
+                else
+                {
+                    TempData[BLL.BOD.CommonValues.UnSuccess] = true;
+                }
             }
-            return View();
+          
+            return View("Index", userView);
         }
 
         //Provide Registration view with provide  Dropdown values

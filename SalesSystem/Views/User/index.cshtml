@@ -16,8 +16,8 @@
        
         <div class="col-sm"></div>
         <div class="col-sm  RegistrationDiv Logindiv align-items-center">
-            <h1 class="header-custom text-center " >Login</h1>
-            @using (Html.BeginForm("User", "Login", FormMethod.Post, new { @class = "form-group" }))
+            <h1 class="header-custom text-center ">Login</h1>
+            @using (Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "form-group" }))
             {
                 <div class="form-group">
                     <label>Email Address</label>
@@ -29,17 +29,13 @@
                     @Html.TextBoxFor(p => p.Password, new { @class = "form-control" })
                     @Html.ValidationMessageFor(p => p.Password, "", new { @class = "text-danger" })
                 </div>
-          
 
+                if (TempData[SalesSystem.BLL.BOD.CommonValues.UnSuccess]!= null)
+                {
+                    <label class="alert-danger border text-capitalize  p-2 border-danger rounded">invalid username Or password</label>
+                }
 
-
-                   
-
-                    <button type="submit" class="btn btn-primary  loginsubmitcustom col-sm-4">Submit</button>
-                  
-
-                    
-            
+                <button type="submit" class="btn btn-primary  loginsubmitcustom col-sm-4">Submit</button>
             }
             <div class="col-sm"></div>
         </div>

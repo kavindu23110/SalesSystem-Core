@@ -3,6 +3,7 @@
     public static class CommonValues
     {
         public const string Success = "Success";
+        public const string UnSuccess = "UnSuccess";
     }
     public static class ProductAccesorries
     {
