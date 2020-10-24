@@ -5,6 +5,7 @@ using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SalesSystem.API.Helpers;
 using SalesSystem.API.queing;
 
 namespace SalesSystem.API
@@ -42,7 +43,9 @@ namespace SalesSystem.API
             app.UseRouting();
 
             app.UseAuthorization();
-  
+
+            app.UseMiddleware<JwtMiddleware.JwtMiddleware>();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

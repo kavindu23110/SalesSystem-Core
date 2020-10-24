@@ -1,14 +1,10 @@
 ﻿using AutoMapper;
+using SalesSystem.API.Models;
 using SalesSystem.BLL.DTO;
-using SalesSystem.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SalesSystem.DTOMapping
 {
-    public class PromotionViewModelProfile:Profile
+    public class PromotionViewModelProfile : Profile
     {
         public PromotionViewModelProfile()
         {
