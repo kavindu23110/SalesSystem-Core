@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using SalesSystem.Attributes;
 using SalesSystem.BLL.DataRetrivalOperations;
 using SalesSystem.BLL.DefinitionObjects;
 using SalesSystem.BLL.DTO;
@@ -8,7 +9,7 @@ using SalesSystem.Helpers;
 using SalesSystem.Models;
 
 namespace SalesSystem.Controllers
-{
+{[AccessAuthorizationAll]
     public class ProductController : Controller
     {
         private readonly IMapper _mapper;

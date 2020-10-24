@@ -25,6 +25,7 @@ namespace SalesSystem.DAL
         public virtual DbSet<Productdetails> Productdetails { get; set; }
         public virtual DbSet<Promotion> Promotion { get; set; }
         public virtual DbSet<PromotionEventlistner> PromotionEventlistner { get; set; }
+        public virtual DbSet<PublishedPromotions> PublishedPromotions { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
         public virtual DbSet<StockProduct> StockProduct { get; set; }
@@ -155,6 +156,17 @@ namespace SalesSystem.DAL
                     .HasForeignKey(d => d.PromotionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Promotion_Eventlistner_Promotion");
+            });
+
+            modelBuilder.Entity<PublishedPromotions>(entity =>
+            {
+                entity.Property(e => e.DiscountPercentage).HasColumnType("money");
+
+                entity.Property(e => e.Enddate).HasColumnType("datetime");
+
+                entity.Property(e => e.Startdate)
+                    .HasColumnName("startdate")
+                    .HasColumnType("datetime");
             });
 
             modelBuilder.Entity<Role>(entity =>

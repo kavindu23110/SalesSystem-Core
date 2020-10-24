@@ -33,7 +33,7 @@ namespace SalesSystem.BLL.UserOperations
             DTO_User dTO = new DTO_User();
             dTO.ContactNo = "need to replace";
             dTO.username = user.UserName;
-            dTO.UserType = user.Role.RoleName;
+            dTO.UserType = context.Role.Where(p => p.Id == user.RoleId).FirstOrDefault().RoleName;
             dTO.IsActive = user.IsActive;
             return dTO;
         }

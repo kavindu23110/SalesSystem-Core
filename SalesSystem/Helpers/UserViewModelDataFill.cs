@@ -20,18 +20,18 @@ namespace SalesSystem.Helpers
         //Fill the userviewModel Drop down
         public void FillUserViewModel(ref UserViewModel userViewModel)
         {
-            //Service provided By DI Container  
-            //A singleton Service
-            userViewModel.lstUserTypes = ((User_RoledataRetrival)dataRetrieve).GetRoles();
+ 
+            userViewModel.lstUserTypes = (dataRetrieve).GetRoles();
+            userViewModel.lstUserTypes.Insert(0, "--Select Option--");
 
         }
 
 
         public bool CheckForUserNameAcvilability(string userName)
         {
-            //Service provided By DI Container  
-            //A singleton Service
-            return ((User_RoledataRetrival)dataRetrieve).CheckUserNameAvilability(userName);
+     
+           
+            return (dataRetrieve).CheckUserNameAvilability(userName);
 
         }
     }

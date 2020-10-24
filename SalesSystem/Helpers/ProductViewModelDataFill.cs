@@ -24,9 +24,13 @@ namespace SalesSystem.Helpers
             //Service provided By DI Container  
             //A singleton Service
 
-            ProductViewModel.lstSupplierName = (dataRetrieve).GetSuppliers()??new List<string>();
-            ProductViewModel.lstBrandIdName = (dataRetrieve).GetBrands() ?? new List<string>();
-            ProductViewModel.lstProductCategory= (dataRetrieve).GetProductCategory() ?? new List<string>();
+            ProductViewModel.lstSupplierName = (dataRetrieve).GetSuppliers();
+            ProductViewModel.lstSupplierName.Insert(0, "--Select Option--");
+            ProductViewModel.lstBrandIdName = (dataRetrieve).GetBrands() ;
+            ProductViewModel.lstBrandIdName.Insert(0, "--Select Option--");
+            ProductViewModel.lstProductCategory= (dataRetrieve).GetProductCategory();
+            ProductViewModel.lstProductCategory.Insert(0, "--Select Option--");
+
        
        
 

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesSystem.BLL", "SalesSys
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SalesSystem.DAL", "SalesSystem.DAL\SalesSystem.DAL.csproj", "{0788F7C8-86FD-42BC-BC78-C6264F994586}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesSystem.API", "SalesSystem.API\SalesSystem.API.csproj", "{2817E810-5E55-4527-9897-564E0F344D33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0788F7C8-86FD-42BC-BC78-C6264F994586}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0788F7C8-86FD-42BC-BC78-C6264F994586}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0788F7C8-86FD-42BC-BC78-C6264F994586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2817E810-5E55-4527-9897-564E0F344D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2817E810-5E55-4527-9897-564E0F344D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2817E810-5E55-4527-9897-564E0F344D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2817E810-5E55-4527-9897-564E0F344D33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

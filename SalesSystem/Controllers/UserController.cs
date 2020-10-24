@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using SalesSystem.Attributes;
 using SalesSystem.BLL.DTO;
 using SalesSystem.BLL.Interfaces;
 using SalesSystem.Helpers;
@@ -41,7 +42,7 @@ namespace SalesSystem.Controllers
                     //Valid Users Are Stored In the Session
                     SessionManager.Set<DTO_User>(HttpContext.Session, "LoggedUser", user);
                     TempData[BLL.BOD.CommonValues.UnSuccess] = true;
-                    return RedirectToAction(nameof(Registration));
+                    return Redirect("~/Home"); 
                 }
                 else
                 {
@@ -53,6 +54,7 @@ namespace SalesSystem.Controllers
         }
 
         //Provide Registration view with provide  Dropdown values
+        [AccessAuthorizationAll]
         public IActionResult Registration()
         {
 
@@ -63,6 +65,7 @@ namespace SalesSystem.Controllers
         }
         //User Registration Request
         [HttpPost]
+        [AccessAuthorizationAll]
         public IActionResult RegistrationProcess(UserViewModel userView, [FromServices] Ioperations ioperations)
         {
 

@@ -56,7 +56,7 @@
 
                         <label class="col-md-4 col-form-label">Product Type</label>
                         <div class="col-md-8">
-                            @Html.DropDownListFor(p => p.ProductType, new SelectList(new List<string>() { "MobilePhone", "Tablet" }), new { @class = "custom-select form-control" })
+                            @Html.DropDownListFor(p => p.ProductType, new SelectList(new List<string>() { "--Select Option--","MobilePhone", "Tablet" }), new { @class = "custom-select form-control" })
 
                         </div>
                     </div>
@@ -153,11 +153,10 @@
                 </div>
 
                 <div class="form-group row">
+                    <div class="col"></div>
                     <button type="reset" class="btn btn-primary col-md-2 col-md-push-5 Button-Margin">Clear</button>
                     <button type="submit" class="btn btn-primary col-md-2 col-md-push-5 Button-Margin">Submit</button>
-
-
-                    <input type="submit" name="response" value="Calculate" formaction=@Url.Action("CalculateProduct") formmethod="post" class="btn btn-primary Button-Margin" />
+                    <div class="col-1"></div>
                 </div>
             }
 

@@ -12,7 +12,6 @@ namespace SalesSystem.Models
             lstSupplierName = new List<string>();
             lstProductCategory= new List<string>();
             lstBrandIdName = new List<string>();
-            lstparts = new List<IParts>();
         }
         [Required]
         public string SupplierName { get; set; }
@@ -30,9 +29,6 @@ namespace SalesSystem.Models
         [Required]
         public float ProfitMargin { get; set; }
         public float Cost { get; set; }
-        public string CustomizationType { get; set; }
-        public string AccessoryName { get; set; }
-        public string size { get; set; }
 
         public List<Product> lstProduct { get; set; }
 
@@ -40,7 +36,6 @@ namespace SalesSystem.Models
         public List<string> lstSupplierName { get; set; }
         public List<string> lstProductCategory { get; set; }
         public List<string> lstBrandIdName { get; set; }
-        public List<IParts> lstparts { get; set; }
     }
 
     public class Product

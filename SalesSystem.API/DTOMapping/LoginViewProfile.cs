@@ -2,7 +2,7 @@
 using SalesSystem.BLL.DTO;
 using SalesSystem.Models;
 
-namespace SalesSystem.DTOMapping
+namespace SalesSystem.API.DTOMapping
 {
     public class LoginViewProfile : Profile
     {

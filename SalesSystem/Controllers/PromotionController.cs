@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using SalesSystem.Attributes;
 using SalesSystem.BLL.DataRetrivalOperations;
 using SalesSystem.BLL.DefinitionObjects;
 using SalesSystem.BLL.DTO;
@@ -8,6 +9,7 @@ using SalesSystem.Models;
 
 namespace SalesSystem.Controllers
 {
+    [AccessAuthorizationSupplierOnly]
     public class PromotionController : Controller
     {
         private readonly IMapper _mapper;

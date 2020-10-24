@@ -50,6 +50,10 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[PublishedPromotions]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Role]"
       },
       {

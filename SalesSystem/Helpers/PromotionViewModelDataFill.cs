@@ -21,8 +21,13 @@ namespace SalesSystem.Helpers
         internal void FillViewModel(ref PromotionViewModel promotionViewModel)
         {
             promotionViewModel.lstDealers = dataRetrieve.GetDealers();
+            promotionViewModel.lstDealers = dataRetrieve.GetDealers();
+
             promotionViewModel.lstProducts = dataRetrieve.GetProductModels();
+            promotionViewModel.lstProducts.Insert(0, "--Select Option--");
+
             promotionViewModel.lstPromotions = dataRetrieve.GetPromotiontypes();
+            promotionViewModel.lstPromotions.Insert(0, "--Select Option--");
         }
     }
 }
