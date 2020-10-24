@@ -10,12 +10,12 @@ namespace SalesSystem.Controllers
     public class UserController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly ViewModelDataFill datafill;
+        private readonly UserViewModelDataFill datafill;
         //Get Services From DI
         public UserController(IMapper mapper, IDataRetrival dataRetrival)
         {
             _mapper = mapper;
-            datafill = new ViewModelDataFill(dataRetrival);
+            datafill = new UserViewModelDataFill(dataRetrival);
         }
         //Return Login View
         public IActionResult Index()

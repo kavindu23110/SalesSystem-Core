@@ -24,7 +24,7 @@ namespace SalesSystem.BLL.DefinitionObjects.Products
 
         public Iproduct GetMobilePhone(DTO_Product dTO_Product)
         {
-            return new BuilderMobilePhone().CreateMobilePhone(dTO_Product);
+            return new BuildMobilePhone().CreateMobilePhone(dTO_Product);
         }
 
         public Iproduct GetTablet(DTO_Product dTO_Product)

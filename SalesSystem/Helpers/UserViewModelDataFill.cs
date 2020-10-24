@@ -7,12 +7,12 @@ using SalesSystem.Models;
 namespace SalesSystem.Helpers
 {
     //Class For Fill data to ViewModels
-    public class ViewModelDataFill : IDataFill
+    public class UserViewModelDataFill : IDataFill
     {
         private readonly IDataRetrival dataRetrieve;
-        private readonly IMapper _mapper;
 
-        public ViewModelDataFill(IDataRetrival dataRetrival)
+
+        public UserViewModelDataFill(IDataRetrival dataRetrival)
         {
             dataRetrieve = dataRetrival;
 
@@ -25,6 +25,19 @@ namespace SalesSystem.Helpers
             userViewModel.lstUserTypes = ((User_RoledataRetrival)dataRetrieve).GetRoles();
 
         }
+        public void FillProductViewModel(ref ProductViewModel ProductViewModel)
+        {
+            //Service provided By DI Container  
+            //A singleton Service
+
+            ProductViewModel.lstSupplierName = ((ProductdataRetrival)dataRetrieve).GetSuppliers();
+            ProductViewModel.lstBrandIdName = ((ProductdataRetrival)dataRetrieve).GetBrands();
+            ProductViewModel.lstProductCategory= ((ProductdataRetrival)dataRetrieve).GetProductCategory();
+          //  ProductViewModel.lstProductCategory= ((ProductdataRetrival)dataRetrieve).GetProductType();
+            //   ProductViewModel.lstparts = ((ProductdataRetrival)dataRetrieve).GetParts();
+
+        }
+
         public bool CheckForUserNameAcvilability(string userName)
         {
             //Service provided By DI Container  

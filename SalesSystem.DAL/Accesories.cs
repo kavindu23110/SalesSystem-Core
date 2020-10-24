@@ -17,6 +17,7 @@ namespace SalesSystem.DAL
         public string Details { get; set; }
         public int Size { get; set; }
         public string SizeUnits { get; set; }
+        public int Cost { get; set; }
 
         public virtual ProductCategory ProductCategory { get; set; }
         public virtual ICollection<ProductAccesories> ProductAccesories { get; set; }

@@ -19,10 +19,14 @@ namespace SalesSystem.BLL.BusinessOperations.ProductOperations
                 using (var tran = context.Database.BeginTransaction())
                 {
                     context.Productdetails.Add(productdetailsobj);
+                    context.SaveChanges();
                     productobj.ProductDetailsId = productdetailsobj.Id;
                     context.Product.Add(productobj);
+                    context.SaveChanges();
                     lstAccessoriesobj.ForEach(p => p.ProductDetailsId = productobj.ProductDetailsId);
                     context.ProductAccesories.AddRange(lstAccessoriesobj);
+                    context.SaveChanges();
+                    tran.Commit();
                 }
             }
             catch (Exception ex)
@@ -51,6 +55,7 @@ namespace SalesSystem.BLL.BusinessOperations.ProductOperations
             productdetails.ProductCategoryId = product.CategoryId;
             productdetails.Profitmargin = product.profitMargin;
             productdetails.Warrenty = product.Warrenty;
+            productdetails.Details = product.Details;
             return productdetails;
         }
 

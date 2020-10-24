@@ -27,7 +27,7 @@ namespace SalesSystem.BLL.DefinitionObjects.Products
                 case "Mobile":
                    product= CreateMobile(dTO_Product);
                     break;
-                case "laptop":
+                case "Laptop":
                     product=CreateLaptop(dTO_Product);
                     break;
             }

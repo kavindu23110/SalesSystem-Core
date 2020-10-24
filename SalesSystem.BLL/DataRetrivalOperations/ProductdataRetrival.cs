@@ -14,10 +14,7 @@ namespace SalesSystem.BLL.DataRetrivalOperations
     {
         private readonly SalessystemContext context;
 
-        public ProductdataRetrival(SalessystemContext contexts)
-        {
-            context = contexts;
-        }
+ 
         public ProductdataRetrival()
         {
             context = new SalesDbContextFactory().CreateDbContext();
@@ -54,6 +51,21 @@ namespace SalesSystem.BLL.DataRetrivalOperations
             }
 
             return CreatedPart;
+        }
+
+        public List<string> GetProductCategory()
+        {
+            return context.ProductCategory.Select(p => p.CategoryName).ToList();
+        }
+
+        public List<string> GetBrands()
+        {
+            return context.Brand.Select(p => p.BrandName ).ToList();
+        }
+
+        public List<string> GetSuppliers()
+        {
+            return context.User.Where(p => p.Role.RoleName == "Supplier").Select(p => p.UserName).ToList();
         }
 
         internal int GetCategoryId(string CategoryName)

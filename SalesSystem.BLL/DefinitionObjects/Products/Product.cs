@@ -27,12 +27,11 @@ namespace SalesSystem.BLL.DefinitionObjects.Products
         public string CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
         public float profitMargin { get; set; }
+        public string Details { get; set; }
 
         public void CalculateCost()
         {
-            cost = lstParts.Sum(p => p.cost);
+            throw new NotImplementedException();
         }
-
-
     }
 }

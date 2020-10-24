@@ -32,8 +32,6 @@ namespace SalesSystem.DAL
         {
             modelBuilder.Entity<Accesories>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.AccesoryName)
                     .IsRequired()
                     .HasMaxLength(255)
@@ -57,12 +55,18 @@ namespace SalesSystem.DAL
 
             modelBuilder.Entity<Brand>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.BrandName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.ModelName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.Brand)
                     .WithMany(p => p.Product)
@@ -79,8 +83,6 @@ namespace SalesSystem.DAL
 
             modelBuilder.Entity<ProductAccesories>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.HasOne(d => d.Accesory)
                     .WithMany(p => p.ProductAccesories)
                     .HasForeignKey(d => d.AccesoryId)
@@ -96,12 +98,21 @@ namespace SalesSystem.DAL
 
             modelBuilder.Entity<ProductCategory>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.CategoryName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Productdetails>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.Details)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Warrenty)
+                    .IsRequired()
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.ProductCategory)
                     .WithMany(p => p.Productdetails)

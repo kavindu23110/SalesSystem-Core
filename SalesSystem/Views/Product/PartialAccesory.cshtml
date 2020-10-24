@@ -1,7 +1,6 @@
 ﻿@page
 @model SalesSystem.Models.ProductViewModel
-@{
-}
+
 
 <div class="form-group">
 
@@ -17,17 +16,55 @@
 </div>
 
 
-<div class="form-group badge-danger">
+<div class="form-group ">
 
-    <div class="form-group row">
+    <div class="form-group row border">
 
-        <label class="col-md-4 col-form-label">Select Accesories</label>
+        <label class="col-md-4 col-form-label ">Select Accesories</label>
         <div class="col-md-8 form-inline">
           
-                <div class="col"> @Html.TextBoxFor(p => p.warrenty, "", new { @class = "form-control" })</div>
-                <div class="col"> @Html.TextBoxFor(p => p.warrenty, "", new { @class = "form-control" })</div>
-                <div class="col"> @Html.TextBoxFor(p => p.warrenty, "", new { @class = "form-control" })</div>
-     
+            <div class="form-group form-inline">
+                @using (@Html.BeginForm("AddAccesory", "Product",FormMethod.Post))
+                {
+                    <div class="col">
+                        @Html.DropDownListFor(p => p.AccessoryName, new SelectList(Model.lstparts.Select(p => p.Name), "Name", "Id", 0),
+                       new { @class = "custom-select form-control" })
+                    </div>
+
+                    <div class="col">
+                        @Html.DropDownListFor(p => p.size, new SelectList(Model.lstparts.Select(p => p.size), "--Select Here--"),
+                       new { @class = "custom-select form-control" })
+                    </div>
+                    <button type="submit">Add </button>
+                }
+            </div>
+
+                <div class="m-6">
+                    <table class="table table-striped  " style="background-color:aliceblue">
+                        <thead>
+                            <tr>
+                           
+                                <th scope="col">Name</th>
+                                <th scope="col">Size</th>
+                                <th scope="col">Cost</th>
+                             
+                            </tr>
+                        </thead>
+                        <tbody>
+                           @{ 
+                               foreach (var item in Model.lstparts)
+                               {
+                                   <tr>
+                                       <td>@item.Name</td>
+                                       <td>@item.size</td>
+                                       <td>@item.cost</td>
+                                   </tr>
+                               }
+                           }
+               
+                        </tbody>
+                    </table>
+                </div>
         </div>
 
     </div>

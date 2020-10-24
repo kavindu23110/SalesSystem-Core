@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using SalesSystem.BLL.DataRetrivalOperations;
 using SalesSystem.BLL.DefinitionObjects;
 using SalesSystem.BLL.DTO;
 using SalesSystem.BLL.Interfaces;
@@ -11,17 +12,19 @@ namespace SalesSystem.Controllers
     public class ProductController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly ViewModelDataFill datafill;
+
+
         //Get Services From DI
         public ProductController(IMapper mapper, IDataRetrival dataRetrival)
         {
             _mapper = mapper;
-            datafill = new ViewModelDataFill(dataRetrival);
+           
         }
 
         public IActionResult Index()
         {
             ProductViewModel productViewModel = new ProductViewModel();
+           new ProductViewModelDataFill().FillProductViewModel(ref productViewModel);
             return View(productViewModel);
         }
 
@@ -34,25 +37,37 @@ namespace SalesSystem.Controllers
                 int id = 0;
                 var ProductDto = new DTO_Product();
                 _mapper.Map(productViewModel, ProductDto);
-                new Dealer( user).SaveProduct(ProductDto);
+              var result=  new Dealer( user).SaveProduct(ProductDto);
+                if (result)
+                {
+          
+                    TempData[BLL.BOD.CommonValues.Success] = true;
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    TempData[BLL.BOD.CommonValues.UnSuccess] = true;
+                }
+
             }
-            return View(productViewModel);
+            new ProductViewModelDataFill().FillProductViewModel(ref productViewModel);
+            return View("Index", productViewModel);
         }
 
 
 
 
-        public IActionResult CalculateProduct(ProductViewModel productViewModel)
-        {
-            var user = new DTO_User();
-            if (ModelState.IsValid)
-            {
-                var ProductDto = new DTO_Product();
-                _mapper.Map(productViewModel, ProductDto);
-                var result = new Dealer(user).CalculateProduct(ProductDto);
-                _mapper.Map(result, productViewModel);
-            }
-            return View(productViewModel);
-        }
+        //public IActionResult CalculateProduct(ProductViewModel productViewModel)
+        //{
+        //    var user = new DTO_User();
+        //    if (ModelState.IsValid)
+        //    {
+        //        var ProductDto = new DTO_Product();
+        //        _mapper.Map(productViewModel, ProductDto);
+        //        var result = new Dealer(user).CalculateProduct(ProductDto);
+        //        _mapper.Map(result, productViewModel);
+        //    }
+        //    return View(productViewModel);
+        //}
     }
 }
