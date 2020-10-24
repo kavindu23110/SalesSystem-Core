@@ -1,8 +1,5 @@
 ﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
 using SalesSystem.BLL.DTO;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SalesSystem.BLL.DefinitionObjects.Products.Mobile
 {
@@ -21,7 +18,7 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Mobile
         {
             var data = new DataRetrivalOperations.ProductdataRetrival();
             var display = data.GetParts(BOD.ProductAccesorries.Screen, 4, BOD.Units.Inch);
-            var Ram= data.GetParts(BOD.ProductAccesorries.Ram, 6, BOD.Units.GB);
+            var Ram = data.GetParts(BOD.ProductAccesorries.Ram, 6, BOD.Units.GB);
             mobile.lstParts.Add(display);
             mobile.lstParts.Add(Ram);
         }
@@ -35,6 +32,6 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Mobile
         }
 
 
-    
+
     }
 }

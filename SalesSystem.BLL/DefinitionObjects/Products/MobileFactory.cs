@@ -1,7 +1,6 @@
 ﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
 using SalesSystem.BLL.DefinitionObjects.Products.Mobile;
 using SalesSystem.BLL.DTO;
-using System;
 
 namespace SalesSystem.BLL.DefinitionObjects.Products
 {
@@ -13,10 +12,10 @@ namespace SalesSystem.BLL.DefinitionObjects.Products
             switch (dTO_Product.ProductType)
             {
                 case "Tablet":
-                    product=GetTablet(dTO_Product);
+                    product = GetTablet(dTO_Product);
                     break;
                 case "MobilePhone":
-                    product=GetMobilePhone(dTO_Product);
+                    product = GetMobilePhone(dTO_Product);
                     break;
             }
             return product;

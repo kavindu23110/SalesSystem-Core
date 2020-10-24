@@ -1,5 +1,4 @@
 ﻿using SalesSystem.BLL.DTO;
-using System;
 
 namespace SalesSystem.BLL.DefinitionObjects.Products.Interfaces
 {

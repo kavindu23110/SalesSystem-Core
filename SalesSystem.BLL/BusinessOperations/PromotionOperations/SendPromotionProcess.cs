@@ -6,7 +6,7 @@ using System;
 
 namespace SalesSystem.BLL.BusinessOperations.PromotionOperations
 {
-   public class SendPromotionProcess: OperationsBase
+    public class SendPromotionProcess : OperationsBase
     {
         public bool Execute(DTO.DTO_Promotion dTO_Promotion)
         {
@@ -23,7 +23,7 @@ namespace SalesSystem.BLL.BusinessOperations.PromotionOperations
 
                 return false;
             }
-     
+
         }
     }
 }

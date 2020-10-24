@@ -1,10 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SalesSystem.BLL.DBContextFactory;
-using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
-using SalesSystem.BLL.DefinitionObjects.Products.Parts;
+﻿using SalesSystem.BLL.DBContextFactory;
 using SalesSystem.BLL.Interfaces;
 using SalesSystem.DAL;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 

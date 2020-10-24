@@ -3,7 +3,6 @@ using SalesSystem.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SalesSystem.BLL.DefinitionObjects.Promotion
 {
@@ -19,7 +18,7 @@ namespace SalesSystem.BLL.DefinitionObjects.Promotion
         public List<NotificationTypes> Eventlistners { get; set; }
 
 
-      
+
 
         public void SetInformation(DTO_Promotion dTO_Promotion, SalessystemContext context)
         {

@@ -1,7 +1,4 @@
-﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
-using System;
-
-namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops
+﻿namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops
 {
     public class Laptop : Product
     {

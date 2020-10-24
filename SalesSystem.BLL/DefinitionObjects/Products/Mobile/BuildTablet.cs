@@ -1,5 +1,4 @@
 ﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
-using System;
 
 namespace SalesSystem.BLL.DefinitionObjects.Products.Mobile
 {
@@ -9,16 +8,16 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Mobile
         {
             MobilePhone mobile = new MobilePhone();
             AddFeatures(mobile);
-            SetDetails(mobile,dTO_Product);
+            SetDetails(mobile, dTO_Product);
             return mobile;
         }
 
         private void SetDetails(MobilePhone mobile, DTO.DTO_Product dTO_Product)
         {
-            mobile. Name = "Tablet";
-            mobile. CategoryName = dTO_Product.ProductCategory;
-            mobile. Type = dTO_Product.ProductType;
-            mobile. Model = dTO_Product.ModelName;
+            mobile.Name = "Tablet";
+            mobile.CategoryName = dTO_Product.ProductCategory;
+            mobile.Type = dTO_Product.ProductType;
+            mobile.Model = dTO_Product.ModelName;
         }
 
         private void AddFeatures(MobilePhone mobile)

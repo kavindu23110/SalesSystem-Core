@@ -2,7 +2,6 @@
 using SalesSystem.BLL.DTO;
 using SalesSystem.BLL.Interfaces;
 using SalesSystem.DAL;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -28,13 +27,13 @@ namespace SalesSystem.BLL.DataRetrivalOperations
         }
         public bool CheckUserNameAvilability(string UserName)
         {
-            return !context.User.Where(p => p.IsActive == true && p.UserName==UserName).Any();
-                
+            return !context.User.Where(p => p.IsActive == true && p.UserName == UserName).Any();
+
         }
 
         public DTO_User GetuserByUserName(string username)
         {
-            var user=context.User.Where(p => p.UserName == username).FirstOrDefault();
+            var user = context.User.Where(p => p.UserName == username).FirstOrDefault();
             return CreateUserObjectAccordingly(user);
         }
 

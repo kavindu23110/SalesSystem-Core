@@ -3,7 +3,6 @@ using SalesSystem.BLL.UserOperations;
 using SalesSystem.DAL;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SalesSystem.BLL.BusinessOperations.ProductOperations
 {
@@ -11,9 +10,9 @@ namespace SalesSystem.BLL.BusinessOperations.ProductOperations
     {
         internal bool Execute(Iproduct product)
         {
-            var productobj=CreateProductDBObject(product);
-            var productdetailsobj= CreateProductDetailsDBObject(product);
-            var lstAccessoriesobj=CreateAccessoryListDBObjects(product.lstParts);
+            var productobj = CreateProductDBObject(product);
+            var productdetailsobj = CreateProductDetailsDBObject(product);
+            var lstAccessoriesobj = CreateAccessoryListDBObjects(product.lstParts);
             try
             {
                 using (var tran = context.Database.BeginTransaction())

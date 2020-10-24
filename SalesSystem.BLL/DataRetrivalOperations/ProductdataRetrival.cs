@@ -1,10 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SalesSystem.BLL.DBContextFactory;
+﻿using SalesSystem.BLL.DBContextFactory;
 using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
 using SalesSystem.BLL.DefinitionObjects.Products.Parts;
 using SalesSystem.BLL.Interfaces;
 using SalesSystem.DAL;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,7 +12,7 @@ namespace SalesSystem.BLL.DataRetrivalOperations
     {
         private readonly SalessystemContext context;
 
- 
+
         public ProductdataRetrival()
         {
             context = new SalesDbContextFactory().CreateDbContext();
@@ -60,7 +58,7 @@ namespace SalesSystem.BLL.DataRetrivalOperations
 
         public List<string> GetBrands()
         {
-            return context.Brand.Select(p => p.BrandName ).ToList();
+            return context.Brand.Select(p => p.BrandName).ToList();
         }
 
         public List<string> GetSuppliers()
@@ -75,7 +73,7 @@ namespace SalesSystem.BLL.DataRetrivalOperations
 
         public int GetBrandId(string Brandname)
         {
-          return  context.Brand.Where(p => p.BrandName == Brandname).FirstOrDefault().Id;
+            return context.Brand.Where(p => p.BrandName == Brandname).FirstOrDefault().Id;
         }
     }
 }

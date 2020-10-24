@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Threading.Tasks;
 
 namespace SalesSystem.SOAP.Models
 
@@ -10,7 +8,7 @@ namespace SalesSystem.SOAP.Models
     [DataContract]
     public class PromotionViewModel
     {
-   
+
         [DataMember]
         public DateTime StartDate { get; set; }
         [DataMember]

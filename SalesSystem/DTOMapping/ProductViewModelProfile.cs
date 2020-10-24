@@ -5,7 +5,7 @@ using SalesSystem.Models;
 
 namespace SalesSystem.DTOMapping
 {
-    public class ProductViewModelProfile:Profile
+    public class ProductViewModelProfile : Profile
     {
         public ProductViewModelProfile()
         {

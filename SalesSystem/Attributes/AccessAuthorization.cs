@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using SalesSystem.BLL.DTO;
 using SalesSystem.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SalesSystem.Attributes
 {
@@ -19,17 +15,17 @@ namespace SalesSystem.Attributes
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-          
-            var user=SessionManager.Get<DTO_User>(context.HttpContext.Session, "LoggedUser");
-            if (user==null)
+
+            var user = SessionManager.Get<DTO_User>(context.HttpContext.Session, "LoggedUser");
+            if (user == null)
             {
                 context.Result = new RedirectResult("~/");
             }
-            else if (user.username=="Dealer")
+            else if (user.username == "Dealer")
             {
                 context.Result = new RedirectResult("~/");
             }
-               
+
         }
     }
 
@@ -46,7 +42,7 @@ namespace SalesSystem.Attributes
             {
                 context.Result = new RedirectResult("~/");
             }
-          
+
 
         }
     }

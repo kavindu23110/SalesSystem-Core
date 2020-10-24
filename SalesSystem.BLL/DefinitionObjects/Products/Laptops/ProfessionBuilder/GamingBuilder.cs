@@ -1,15 +1,12 @@
 ﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
-using SalesSystem.BLL.DTO;
 using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops.ProfessionBuilder
 {
-    public class GamingBuilder : AbstractBuilder,IProfessionBuilder
+    public class GamingBuilder : AbstractBuilder, IProfessionBuilder
     {
 
-       
+
 
         public bool CheckQuality()
         {
@@ -22,6 +19,6 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops.ProfessionBuilder
         }
 
 
-       
+
     }
 }

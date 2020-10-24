@@ -11,12 +11,12 @@ namespace SalesSystem.Controllers
     public class UserController : Controller
     {
         private readonly IMapper _mapper;
-    
+
         //Get Services From DI
         public UserController(IMapper mapper)
         {
             _mapper = mapper;
-       
+
         }
         //Return Login View
         public IActionResult Index()
@@ -42,14 +42,14 @@ namespace SalesSystem.Controllers
                     //Valid Users Are Stored In the Session
                     SessionManager.Set<DTO_User>(HttpContext.Session, "LoggedUser", user);
                     TempData[BLL.BOD.CommonValues.UnSuccess] = true;
-                    return Redirect("~/Home"); 
+                    return Redirect("~/Home");
                 }
                 else
                 {
                     TempData[BLL.BOD.CommonValues.UnSuccess] = true;
                 }
             }
-          
+
             return View("Index", loginView);
         }
 
@@ -59,7 +59,7 @@ namespace SalesSystem.Controllers
         {
 
             UserViewModel userViewModel = new UserViewModel();
-           new UserViewModelDataFill().FillUserViewModel(ref userViewModel);
+            new UserViewModelDataFill().FillUserViewModel(ref userViewModel);
             return View(userViewModel);
 
         }

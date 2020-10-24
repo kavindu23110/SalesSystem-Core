@@ -15,7 +15,7 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Interfaces
         public int BrandId { get; set; }
         public int cost { get; set; }
         public string CreatedBy { get; set; }
-        public string Details{ get; set; }
+        public string Details { get; set; }
         public DateTime CreatedOn { get; set; }
         public float profitMargin { get; set; }
         public List<IParts> lstParts { get; set; }

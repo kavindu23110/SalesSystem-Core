@@ -20,7 +20,7 @@ namespace SalesSystem.Helpers
         //Fill the userviewModel Drop down
         public void FillUserViewModel(ref UserViewModel userViewModel)
         {
- 
+
             userViewModel.lstUserTypes = (dataRetrieve).GetRoles();
             userViewModel.lstUserTypes.Insert(0, "--Select Option--");
 
@@ -29,8 +29,8 @@ namespace SalesSystem.Helpers
 
         public bool CheckForUserNameAcvilability(string userName)
         {
-     
-           
+
+
             return (dataRetrieve).CheckUserNameAvilability(userName);
 
         }

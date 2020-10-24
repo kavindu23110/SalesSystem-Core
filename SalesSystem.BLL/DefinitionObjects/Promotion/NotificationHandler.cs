@@ -1,8 +1,5 @@
 ﻿using SalesSystem.BLL.DefinitionObjects.Promotion.EventListner;
-using System;
 using System.Collections.Generic;
-using System.Security.Policy;
-using System.Text;
 
 namespace SalesSystem.BLL.DefinitionObjects.Promotion
 {
@@ -19,15 +16,15 @@ namespace SalesSystem.BLL.DefinitionObjects.Promotion
 
         private void AddEventSubscribers()
         {
-           var eventListner= new EventListnerFactory();
+            var eventListner = new EventListnerFactory();
             foreach (var item in Promotion.Eventlistners)
             {
-             lsteventListners.Add(eventListner.GetEventListner(item.Name));
+                lsteventListners.Add(eventListner.GetEventListner(item.Name));
             }
         }
 
-        public List<IEventListner> lsteventListners{ get; set; }
-       private void Subscribe(IEventListner eventListner)
+        public List<IEventListner> lsteventListners { get; set; }
+        private void Subscribe(IEventListner eventListner)
         {
             lsteventListners.Add(eventListner);
         }

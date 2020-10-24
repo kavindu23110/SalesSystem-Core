@@ -37,7 +37,7 @@ namespace SalesSystem.BLL.DefinitionObjects
 
         public bool SendNotification(DTO_Promotion DTO_Promotion)
         {
-          return  new SendPromotionProcess().Execute(DTO_Promotion);
+            return new SendPromotionProcess().Execute(DTO_Promotion);
         }
     }
 }

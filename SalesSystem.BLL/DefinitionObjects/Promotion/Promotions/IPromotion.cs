@@ -6,7 +6,7 @@ namespace SalesSystem.BLL.DefinitionObjects.Promotion
 {
     public interface IPromotion
     {
-        public List<DAL.NotificationTypes> Eventlistners{ get; set; }
+        public List<DAL.NotificationTypes> Eventlistners { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public float DiscountPercentage { get; set; }

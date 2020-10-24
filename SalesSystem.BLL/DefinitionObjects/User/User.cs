@@ -1,5 +1,4 @@
-﻿using SalesSystem.BLL.DBContextFactory;
-using SalesSystem.BLL.DefinitionObjects.Promotion;
+﻿using SalesSystem.BLL.DefinitionObjects.Promotion;
 using System;
 using System.Collections.Generic;
 
@@ -9,7 +8,7 @@ namespace SalesSystem.BLL.DefinitionObjects
     {
         public User()
         {
-           
+
 
         }
 

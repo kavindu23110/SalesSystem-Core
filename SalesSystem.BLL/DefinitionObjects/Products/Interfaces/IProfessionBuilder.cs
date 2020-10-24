@@ -9,11 +9,11 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Interfaces
         void AddRam();
         void AddScreen();
         void SetDetails();
-   
+
         void AddHeadset();
         Iproduct GetLaptop();
         bool CheckQuality();
-    
+
 
     }
 }

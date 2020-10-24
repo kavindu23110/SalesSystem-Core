@@ -30,7 +30,7 @@
     public static class NotificationTypes
     {
         public const string Email = @"Email";
-  
+
 
     }
 

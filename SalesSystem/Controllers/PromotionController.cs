@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SalesSystem.Attributes;
-using SalesSystem.BLL.DataRetrivalOperations;
 using SalesSystem.BLL.DefinitionObjects;
 using SalesSystem.BLL.DTO;
 using SalesSystem.Helpers;
@@ -13,7 +12,7 @@ namespace SalesSystem.Controllers
     public class PromotionController : Controller
     {
         private readonly IMapper _mapper;
-        
+
         public PromotionController(IMapper mapper)
         {
             _mapper = mapper;
@@ -31,7 +30,7 @@ namespace SalesSystem.Controllers
             {
                 var DTO = new DTO_Promotion();
                 _mapper.Map(promotionViewModel, DTO);
-                var result=new Dealer(new DTO_User()).SendNotification(DTO);
+                var result = new Dealer(new DTO_User()).SendNotification(DTO);
                 if (result)
                 {
 
@@ -45,7 +44,7 @@ namespace SalesSystem.Controllers
 
             }
             new PromotionViewModelDataFill().FillViewModel(ref promotionViewModel);
-            return View("index",promotionViewModel);
+            return View("index", promotionViewModel);
         }
 
 

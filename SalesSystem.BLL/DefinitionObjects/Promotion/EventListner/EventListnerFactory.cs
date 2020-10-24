@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SalesSystem.BLL.DefinitionObjects.Promotion.EventListner
+﻿namespace SalesSystem.BLL.DefinitionObjects.Promotion.EventListner
 {
     class EventListnerFactory
     {
@@ -12,7 +8,7 @@ namespace SalesSystem.BLL.DefinitionObjects.Promotion.EventListner
             {
                 case BOD.NotificationTypes.Email:
                     return new EmailEventListner();
-            
+
                 default:
                     return null;
 

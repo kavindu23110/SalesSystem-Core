@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace SalesSystem.API.Models
+﻿namespace SalesSystem.API.Models
 {
     public class AuthenticateResponse
     {

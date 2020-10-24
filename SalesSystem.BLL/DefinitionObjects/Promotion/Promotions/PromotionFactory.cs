@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SalesSystem.BLL.DefinitionObjects.Promotion.Promotions
+﻿namespace SalesSystem.BLL.DefinitionObjects.Promotion.Promotions
 {
- public   class PromotionFactory
+    public class PromotionFactory
     {
         public IPromotion getPromotion(string PromotionType)
         {
@@ -16,7 +12,7 @@ namespace SalesSystem.BLL.DefinitionObjects.Promotion.Promotions
                     return new StockClearencen();
                 default:
                     return null;
-                   
+
             }
         }
     }

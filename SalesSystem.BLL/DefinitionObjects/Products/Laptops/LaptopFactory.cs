@@ -1,7 +1,6 @@
 ﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
 using SalesSystem.BLL.DefinitionObjects.Products.Laptops.ProfessionBuilder;
 using SalesSystem.BLL.DTO;
-using System;
 
 namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops
 {
@@ -13,16 +12,16 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops
         //}
         internal Iproduct Getlaptop(DTO_Product dTO_Product)
         {
-            Iproduct laptop=null;
+            Iproduct laptop = null;
             switch (dTO_Product.ProductType)
             {
                 case "Basic":
-                    laptop=GetBasiclaptop(dTO_Product);
-                    break;   
-                case "Customized":
-                    laptop=GetCustomizedlaptop(dTO_Product);
+                    laptop = GetBasiclaptop(dTO_Product);
                     break;
-            
+                case "Customized":
+                    laptop = GetCustomizedlaptop(dTO_Product);
+                    break;
+
             }
             return laptop;
         }
@@ -36,9 +35,9 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops
                     builder = new ProfessionalBuilder();
                     break;
                 case "Gaming":
-                     builder = new GamingBuilder();
+                    builder = new GamingBuilder();
                     break;
-           
+
             }
             var Director = new ProfessionDirector(builder);
             Director.Make(dTO_Product);

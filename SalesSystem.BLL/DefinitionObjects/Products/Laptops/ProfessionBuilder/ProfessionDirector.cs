@@ -1,7 +1,5 @@
-﻿using SalesSystem.BLL.BusinessOperations.ProductOperations;
-using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
+﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
 using SalesSystem.BLL.DTO;
-using System;
 using System.Linq;
 
 namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops.ProfessionBuilder
@@ -24,7 +22,7 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops.ProfessionBuilder
         private void BuildProduct(DTO_Product dTO_Product)
         {
             BuildBasicFeatures(dTO_Product);
-            if (dTO_Product.CustomizationType=="Gaming")
+            if (dTO_Product.CustomizationType == "Gaming")
             {
                 builder.AddHeadset();
             }
@@ -33,7 +31,7 @@ namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops.ProfessionBuilder
 
         private void BuildBasicFeatures(DTO.DTO_Product dTO_Product)
         {
-            if (dTO_Product.lstparts.Where(p=>p.Name==BOD.ProductAccesorries.Ram).Any())
+            if (dTO_Product.lstparts.Where(p => p.Name == BOD.ProductAccesorries.Ram).Any())
             {
                 builder.AddRam();
             }

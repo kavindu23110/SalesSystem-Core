@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SalesSystem.Models
 {
@@ -9,7 +7,7 @@ namespace SalesSystem.Models
     {
         public PromotionViewModel()
         {
-            lstProducts=new List<string>();
+            lstProducts = new List<string>();
             lstDealers = new List<string>();
             lstPromotions = new List<string>();
             StartDate = DateTime.Now;

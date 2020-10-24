@@ -1,5 +1,4 @@
-﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SalesSystem.Models
@@ -10,7 +9,7 @@ namespace SalesSystem.Models
         {
             lstProduct = new List<Product>();
             lstSupplierName = new List<string>();
-            lstProductCategory= new List<string>();
+            lstProductCategory = new List<string>();
             lstBrandIdName = new List<string>();
         }
         [Required]
@@ -18,7 +17,7 @@ namespace SalesSystem.Models
         [Required]
         public string ProductCategory { get; set; }
         [Required]
-        public string ProductType{ get; set; }
+        public string ProductType { get; set; }
         [Required]
         public string BrandName { get; set; }
         [Required]

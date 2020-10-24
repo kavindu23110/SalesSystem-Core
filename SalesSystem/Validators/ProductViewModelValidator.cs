@@ -1,9 +1,5 @@
 ﻿using FluentValidation;
 using SalesSystem.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SalesSystem.Validators
 {
@@ -21,6 +17,6 @@ namespace SalesSystem.Validators
             RuleFor(p => p.SupplierName).NotEmpty().NotEqual("--Select Option--");
             RuleFor(p => p.warrenty).NotEmpty();
         }
-        
+
     }
 }

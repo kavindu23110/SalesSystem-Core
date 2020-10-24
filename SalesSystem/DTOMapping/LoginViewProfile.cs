@@ -10,5 +10,5 @@ namespace SalesSystem.DTOMapping
         {
             CreateMap<LoginviewModel, DTO_User>().ReverseMap();
         }
-}
+    }
 }

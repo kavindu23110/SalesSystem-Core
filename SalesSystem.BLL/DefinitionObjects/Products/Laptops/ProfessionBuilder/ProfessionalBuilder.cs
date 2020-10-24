@@ -1,10 +1,9 @@
 ﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
-using SalesSystem.BLL.DTO;
 using System;
 
 namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops.ProfessionBuilder
 {
-    public class ProfessionalBuilder : AbstractBuilder,IProfessionBuilder
+    public class ProfessionalBuilder : AbstractBuilder, IProfessionBuilder
     {
         Iproduct product = new Laptop();
 
