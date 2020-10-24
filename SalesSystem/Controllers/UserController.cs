@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using SalesSystem.Attributes;
 using SalesSystem.BLL.DTO;
 using SalesSystem.BLL.Interfaces;
 using SalesSystem.Helpers;
@@ -10,12 +11,12 @@ namespace SalesSystem.Controllers
     public class UserController : Controller
     {
         private readonly IMapper _mapper;
-        private readonly ViewModelDataFill datafill;
+
         //Get Services From DI
-        public UserController(IMapper mapper, IDataRetrival dataRetrival)
+        public UserController(IMapper mapper)
         {
             _mapper = mapper;
-            datafill = new ViewModelDataFill(dataRetrival);
+
         }
         //Return Login View
         public IActionResult Index()
@@ -41,28 +42,30 @@ namespace SalesSystem.Controllers
                     //Valid Users Are Stored In the Session
                     SessionManager.Set<DTO_User>(HttpContext.Session, "LoggedUser", user);
                     TempData[BLL.BOD.CommonValues.UnSuccess] = true;
-                    return RedirectToAction(nameof(Registration));
+                    return Redirect("~/Home");
                 }
                 else
                 {
                     TempData[BLL.BOD.CommonValues.UnSuccess] = true;
                 }
             }
-          
+
             return View("Index", loginView);
         }
 
         //Provide Registration view with provide  Dropdown values
+        [AccessAuthorizationAll]
         public IActionResult Registration()
         {
 
             UserViewModel userViewModel = new UserViewModel();
-            datafill.FillUserViewModel(ref userViewModel);
+            new UserViewModelDataFill().FillUserViewModel(ref userViewModel);
             return View(userViewModel);
 
         }
         //User Registration Request
         [HttpPost]
+        [AccessAuthorizationAll]
         public IActionResult RegistrationProcess(UserViewModel userView, [FromServices] Ioperations ioperations)
         {
 

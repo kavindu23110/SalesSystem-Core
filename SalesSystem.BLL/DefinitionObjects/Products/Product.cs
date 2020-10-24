@@ -1,9 +1,6 @@
-﻿using SalesSystem.BLL.DBContextFactory;
-using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
-using SalesSystem.DAL;
+﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace SalesSystem.BLL.DefinitionObjects.Products
 {
@@ -14,7 +11,7 @@ namespace SalesSystem.BLL.DefinitionObjects.Products
         public string Model { get; set; }
         public string Type { get; set; }
         public string CategoryName { get; set; }
-        public  int Id{ get; set; }
+        public int Id { get; set; }
         public int cost { get; set; }
         public int BrandId { get; set; }
 
@@ -27,12 +24,11 @@ namespace SalesSystem.BLL.DefinitionObjects.Products
         public string CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
         public float profitMargin { get; set; }
+        public string Details { get; set; }
 
         public void CalculateCost()
         {
-            cost = lstParts.Sum(p => p.cost);
+            throw new NotImplementedException();
         }
-
-
     }
 }

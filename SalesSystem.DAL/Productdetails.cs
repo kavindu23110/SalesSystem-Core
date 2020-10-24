@@ -14,7 +14,7 @@ namespace SalesSystem.DAL
 
         public int Id { get; set; }
         public int ProductCategoryId { get; set; }
-        public float Profitmargin { get; set; }
+        public double Profitmargin { get; set; }
         public string Details { get; set; }
         public string Warrenty { get; set; }
 

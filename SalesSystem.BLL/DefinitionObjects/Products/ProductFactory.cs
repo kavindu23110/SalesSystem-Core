@@ -1,7 +1,6 @@
 ﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
 using SalesSystem.BLL.DefinitionObjects.Products.Laptops;
 using SalesSystem.BLL.DTO;
-using System;
 
 namespace SalesSystem.BLL.DefinitionObjects.Products
 {
@@ -25,10 +24,10 @@ namespace SalesSystem.BLL.DefinitionObjects.Products
             switch (dTO_Product.ProductCategory)
             {
                 case "Mobile":
-                   product= CreateMobile(dTO_Product);
+                    product = CreateMobile(dTO_Product);
                     break;
-                case "laptop":
-                    product=CreateLaptop(dTO_Product);
+                case "Laptop":
+                    product = CreateLaptop(dTO_Product);
                     break;
             }
             return product;
@@ -37,6 +36,6 @@ namespace SalesSystem.BLL.DefinitionObjects.Products
 
 
 
-  
+
     }
 }

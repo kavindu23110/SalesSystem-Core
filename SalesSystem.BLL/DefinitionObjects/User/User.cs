@@ -1,4 +1,4 @@
-﻿using SalesSystem.BLL.DBContextFactory;
+﻿using SalesSystem.BLL.DefinitionObjects.Promotion;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +8,7 @@ namespace SalesSystem.BLL.DefinitionObjects
     {
         public User()
         {
-           
+
 
         }
 
@@ -23,6 +23,11 @@ namespace SalesSystem.BLL.DefinitionObjects
         }
 
         private void SetUserRole()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void RecievePromotions(NotificationHandler notificationHandler)
         {
             throw new NotImplementedException();
         }

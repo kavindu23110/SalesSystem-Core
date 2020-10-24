@@ -20,5 +20,18 @@
         public const string TB = @"tb";
         public const string Inch = @"Inch";
     }
+    public static class Promotions
+    {
+        public const string YearEndPromotion = @"Year End";
+        public const string StockClearence = @"Stock Clearence";
+
+    }
+
+    public static class NotificationTypes
+    {
+        public const string Email = @"Email";
+
+
+    }
 
 }

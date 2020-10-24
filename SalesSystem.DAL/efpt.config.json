@@ -22,6 +22,10 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[NotificationTypes]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Product]"
       },
       {
@@ -35,6 +39,18 @@
       {
          "HasPrimaryKey": true,
          "Name": "[dbo].[Productdetails]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Promotion]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Promotion_Eventlistner]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[PublishedPromotions]"
       },
       {
          "HasPrimaryKey": true,

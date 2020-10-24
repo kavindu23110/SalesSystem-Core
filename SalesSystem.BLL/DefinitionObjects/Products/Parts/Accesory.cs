@@ -1,7 +1,4 @@
 ﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SalesSystem.BLL.DefinitionObjects.Products.Parts
 {

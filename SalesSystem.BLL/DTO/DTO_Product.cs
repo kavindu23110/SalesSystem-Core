@@ -1,13 +1,10 @@
 ﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SalesSystem.BLL.DTO
 {
- public   class DTO_Product
+    public class DTO_Product
     {
-
         public string SupplierName { get; set; }
         public string ProductCategory { get; set; }
         public string ModelName { get; set; }

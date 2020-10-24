@@ -3,7 +3,6 @@ using SalesSystem.BLL.UserOperations;
 using SalesSystem.DAL;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SalesSystem.BLL.BusinessOperations.ProductOperations
 {
@@ -11,18 +10,22 @@ namespace SalesSystem.BLL.BusinessOperations.ProductOperations
     {
         internal bool Execute(Iproduct product)
         {
-            var productobj=CreateProductDBObject(product);
-            var productdetailsobj= CreateProductDetailsDBObject(product);
-            var lstAccessoriesobj=CreateAccessoryListDBObjects(product.lstParts);
+            var productobj = CreateProductDBObject(product);
+            var productdetailsobj = CreateProductDetailsDBObject(product);
+            var lstAccessoriesobj = CreateAccessoryListDBObjects(product.lstParts);
             try
             {
                 using (var tran = context.Database.BeginTransaction())
                 {
                     context.Productdetails.Add(productdetailsobj);
+                    context.SaveChanges();
                     productobj.ProductDetailsId = productdetailsobj.Id;
                     context.Product.Add(productobj);
+                    context.SaveChanges();
                     lstAccessoriesobj.ForEach(p => p.ProductDetailsId = productobj.ProductDetailsId);
                     context.ProductAccesories.AddRange(lstAccessoriesobj);
+                    context.SaveChanges();
+                    tran.Commit();
                 }
             }
             catch (Exception ex)
@@ -51,6 +54,7 @@ namespace SalesSystem.BLL.BusinessOperations.ProductOperations
             productdetails.ProductCategoryId = product.CategoryId;
             productdetails.Profitmargin = product.profitMargin;
             productdetails.Warrenty = product.Warrenty;
+            productdetails.Details = product.Details;
             return productdetails;
         }
 

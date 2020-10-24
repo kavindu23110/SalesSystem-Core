@@ -1,4 +1,5 @@
 ﻿using SalesSystem.BLL.BusinessOperations.ProductOperations;
+using SalesSystem.BLL.BusinessOperations.PromotionOperations;
 using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
 using SalesSystem.BLL.DTO;
 using System;
@@ -7,7 +8,7 @@ namespace SalesSystem.BLL.DefinitionObjects
 {
     public class Dealer : User
     {
-      
+
         public Dealer(DTO_User dTO_User)
         {
             Username = dTO_User.username;
@@ -17,23 +18,26 @@ namespace SalesSystem.BLL.DefinitionObjects
 
         public DTO_Product CalculateProduct(DTO_Product dTO_Product)
         {
-           Iproduct product= new BuildProduct().Execute(dTO_Product);
-           product.CalculateCost();
+            Iproduct product = new BuildProduct().Execute(dTO_Product);
+            product.CalculateCost();
             dTO_Product.Cost = product.cost;
             return dTO_Product;
 
         }
 
-        public void SaveProduct(DTO_Product dTO_Product)
+        public bool SaveProduct(DTO_Product dTO_Product)
         {
-           
+
             Iproduct product = new BuildProduct().Execute(dTO_Product);
-            product.CalculateCost();
+
             product.CreatedOn = DateTime.Now;
-            product.CreatedBy= this.Username;
-            new SaveProductProcess().Execute(product);
+            product.CreatedBy = this.Username;
+            return new SaveProductProcess().Execute(product);
+        }
 
-
+        public bool SendNotification(DTO_Promotion DTO_Promotion)
+        {
+            return new SendPromotionProcess().Execute(DTO_Promotion);
         }
     }
 }

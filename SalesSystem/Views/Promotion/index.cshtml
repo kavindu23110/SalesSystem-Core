@@ -1,0 +1,138 @@
+﻿@model SalesSystem.Models.PromotionViewModel
+
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/Custom.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<div class="container">
+    <div class="row registration-pulldown"></div>
+    <div class="row">
+        <div class=" col-sm-3"></div>
+        <div class="col-lg-6 RegistrationDiv">
+            <h1 class="header-custom text-center ">Promotions</h1>
+            @using (Html.BeginForm("SendPromotion", "Promotion", FormMethod.Post))
+            {
+                <div class="form-group">
+
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label">Product Id</label><div class="col-md-8">
+                            @Html.DropDownListFor(p => p.Model, new SelectList(Model.lstProducts), new { @class = "custom-select form-control" })
+
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(p => p.Model, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label">Promotion</label><div class="col-md-8">
+                            @Html.DropDownListFor(p => p.Promotion, new SelectList(Model.lstPromotions), new { @class = "custom-select form-control" })
+
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(p => p.Promotion, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label">Start Date</label><div class="col-md-8">
+                            @Html.TextBoxFor(p => p.StartDate, new { @class = "custom-select form-control" })
+
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(p => p.StartDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label">End Date</label><div class="col-md-8">
+                            @Html.TextBoxFor(p => p.EndDate, new { @class = "custom-select form-control" })
+
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(p => p.EndDate, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label">Discount Percentage</label><div class="col-md-8">
+                            @Html.TextBoxFor(p => p.DiscountPercentage, new { @class = "custom-select form-control" })
+
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(p => p.DiscountPercentage, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label">Dealer name</label> <div class="col-md-8">
+                            @Html.DropDownListFor(p => p.DealerName, new SelectList(Model.lstDealers), new { @class = "custom-select form-control" })
+
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(p => p.DealerName, "", new { @class = "text-danger" })
+                </div>
+
+
+
+                <div class="form-group">
+
+
+                    <div class="form-group row">
+
+                        <label class="col-md-4 col-form-label">Description</label>
+                        <div class="col-md-8">
+                            @Html.TextAreaFor(p => p.description, new { @class = "form-control " })
+                        </div>
+
+                    </div>
+                    @Html.ValidationMessageFor(p => p.description, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group row">
+                    <div class="col"></div>
+                    <button type="reset" class="btn btn-primary col-md-2 col-md-push-5 Button-Margin">Clear</button>
+                    <button type="submit" class="btn btn-primary col-md-2 col-md-push-5 Button-Margin">Submit</button>
+                    <div class="col-1"></div>
+
+
+
+                </div>
+            }
+
+        </div>
+    </div>
+    <script>
+                @{
+                    var temp = TempData[SalesSystem.BLL.BOD.CommonValues.Success];
+                    if (temp != null)
+                    {
+                       @Html.Raw("myfunction();");
+
+
+
+                    }
+                 }
+
+                function myfunction() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'User work has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+    </script>
+</div>
+

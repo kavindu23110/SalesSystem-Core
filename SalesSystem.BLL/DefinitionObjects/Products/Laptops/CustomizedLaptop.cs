@@ -1,6 +1,4 @@
-﻿using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
-
-namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops
+﻿namespace SalesSystem.BLL.DefinitionObjects.Products.Laptops
 {
     class CustomizedLaptop
     {
