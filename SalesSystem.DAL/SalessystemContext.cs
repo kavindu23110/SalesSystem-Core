@@ -18,10 +18,13 @@ namespace SalesSystem.DAL
 
         public virtual DbSet<Accesories> Accesories { get; set; }
         public virtual DbSet<Brand> Brand { get; set; }
+        public virtual DbSet<NotificationTypes> NotificationTypes { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductAccesories> ProductAccesories { get; set; }
         public virtual DbSet<ProductCategory> ProductCategory { get; set; }
         public virtual DbSet<Productdetails> Productdetails { get; set; }
+        public virtual DbSet<Promotion> Promotion { get; set; }
+        public virtual DbSet<PromotionEventlistner> PromotionEventlistner { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Stock> Stock { get; set; }
         public virtual DbSet<StockProduct> StockProduct { get; set; }
@@ -56,6 +59,16 @@ namespace SalesSystem.DAL
             modelBuilder.Entity<Brand>(entity =>
             {
                 entity.Property(e => e.BrandName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<NotificationTypes>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -106,9 +119,7 @@ namespace SalesSystem.DAL
 
             modelBuilder.Entity<Productdetails>(entity =>
             {
-                entity.Property(e => e.Details)
-                    .IsRequired()
-                    .IsUnicode(false);
+                entity.Property(e => e.Details).IsUnicode(false);
 
                 entity.Property(e => e.Warrenty)
                     .IsRequired()
@@ -119,6 +130,31 @@ namespace SalesSystem.DAL
                     .HasForeignKey(d => d.ProductCategoryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Productdetails_ProductCategory");
+            });
+
+            modelBuilder.Entity<Promotion>(entity =>
+            {
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<PromotionEventlistner>(entity =>
+            {
+                entity.ToTable("Promotion_Eventlistner");
+
+                entity.HasOne(d => d.EventListner)
+                    .WithMany(p => p.PromotionEventlistner)
+                    .HasForeignKey(d => d.EventListnerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Promotion_Eventlistner_NotificationTypes");
+
+                entity.HasOne(d => d.Promotion)
+                    .WithMany(p => p.PromotionEventlistner)
+                    .HasForeignKey(d => d.PromotionId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Promotion_Eventlistner_Promotion");
             });
 
             modelBuilder.Entity<Role>(entity =>

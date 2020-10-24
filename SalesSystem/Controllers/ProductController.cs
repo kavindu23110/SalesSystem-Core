@@ -57,17 +57,5 @@ namespace SalesSystem.Controllers
 
 
 
-        //public IActionResult CalculateProduct(ProductViewModel productViewModel)
-        //{
-        //    var user = new DTO_User();
-        //    if (ModelState.IsValid)
-        //    {
-        //        var ProductDto = new DTO_Product();
-        //        _mapper.Map(productViewModel, ProductDto);
-        //        var result = new Dealer(user).CalculateProduct(ProductDto);
-        //        _mapper.Map(result, productViewModel);
-        //    }
-        //    return View(productViewModel);
-        //}
     }
 }

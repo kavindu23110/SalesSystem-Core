@@ -1,4 +1,5 @@
 ﻿using SalesSystem.BLL.BusinessOperations.ProductOperations;
+using SalesSystem.BLL.BusinessOperations.PromotionOperations;
 using SalesSystem.BLL.DefinitionObjects.Products.Interfaces;
 using SalesSystem.BLL.DTO;
 using System;
@@ -32,8 +33,11 @@ namespace SalesSystem.BLL.DefinitionObjects
             product.CreatedOn = DateTime.Now;
             product.CreatedBy = this.Username;
             return new SaveProductProcess().Execute(product);
+        }
 
-
+        public bool SendNotification(DTO_Promotion DTO_Promotion)
+        {
+          return  new SendPromotionProcess().Execute(DTO_Promotion);
         }
     }
 }
